@@ -10,6 +10,9 @@ import Root from './Root.jsx';
 import Error from './Error.jsx';
 import Home from './Home.jsx';
 import Login from './Login.jsx';
+import Profile from './Profile.jsx';
+import Register from './Register.jsx';
+import Packages from './Packages.jsx';
 
 
 
@@ -25,8 +28,20 @@ const router = createBrowserRouter([
         element: <Home></Home>
       },
       {
+        path: '/packages',
+        element: <Packages></Packages>
+      },
+      {
+        path: '/profile',
+        element: <Profile></Profile>
+      },
+      {
         path: '/login',
         element: <Login></Login>
+      },
+      {
+        path: '/register',
+        element: <Register></Register>
       },
     ]
   },
@@ -37,7 +52,7 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <div className="max-w-screen-xl mx-auto p-5 border-4">
+    <div className="max-w-screen-xl mx-auto ">
     <RouterProvider router={router} />
     </div>
   </StrictMode>,

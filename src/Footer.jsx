@@ -1,6 +1,6 @@
 const Footer = () => {
   return (
-    <div>
+    <div className="bg-gray-50">
       <div className="border-t-2">
         {/* left */}
         <div className="">
@@ -29,7 +29,7 @@ const Footer = () => {
                     rel="noopener noreferrer"
                     href="#"
                     title="Pinterest"
-                    className="flex items-center justify-center w-4 h-4 rounded-full sm:w-10 sm:h-10 dark:bg-gray-100 dark:text-red-500"
+                    className="flex items-center justify-center w-8 h-8 rounded-full sm:w-10 sm:h-10 dark:bg-gray-100 dark:text-red-500"
                   >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -105,7 +105,7 @@ const Footer = () => {
                     rel="noopener noreferrer"
                     href="https://www.youtube.com/@AbdullahAlNoman."
                     title="YouTube"
-                    className="flex items-center justify-center w-4 h-4 rounded-full sm:w-10 sm:h-10 dark:bg-gray-100 dark:text-red-500"
+                    className="flex items-center justify-center w-8 h-8 rounded-full sm:w-10 sm:h-10 dark:bg-gray-100 dark:text-red-500"
                   >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -122,7 +122,7 @@ const Footer = () => {
                     rel="noopener noreferrer"
                     href="https://github.com/AbdullahAlNoman20"
                     title="GitHub"
-                    className="flex items-center justify-center w-10 h-10 rounded-full dark:bg-gray-100 dark:text-black"
+                    className="flex items-center justify-center w-8 h-8 rounded-full sm:w-10 sm:h-10 dark:bg-gray-100 dark:text-black"
                   >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"

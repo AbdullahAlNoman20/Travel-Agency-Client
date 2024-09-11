@@ -1,18 +1,28 @@
+import { NavLink } from "react-router-dom";
+
 const Nav = () => {
   const navOptions = (
     <>
-      <li>
-        <a>Home</a>
-      </li>
-      <li>
-        <a>Packages</a>
-      </li>
+      <NavLink to="/">
+        <li>
+          <a>Home</a>
+        </li>
+      </NavLink>
+      <NavLink to="packages">
+        <li>
+          <a>Packages</a>
+        </li>
+      </NavLink>
+
       <li>
         <a>Testimonial</a>
       </li>
-      <li>
-        <a>Blog</a>
-      </li>
+      <NavLink to="/profile">
+        <li>
+          <a>Profile</a>
+        </li>
+      </NavLink>
+
       <li>
         <a>Contact</a>
       </li>
@@ -20,7 +30,7 @@ const Nav = () => {
   );
 
   return (
-    <div>
+    <div className="bg-gray-50 border-b-2">
       <section>
         <div className="navbar">
           <div className="navbar-start">
@@ -52,13 +62,19 @@ const Nav = () => {
                 {navOptions}
               </ul>
             </div>
-            <a className="text-2xl font-extrabold text-green-600">Mount Ride </a>
+            <a className="text-2xl font-extrabold text-green-600">
+              Mount Ride{" "}
+            </a>
           </div>
           <div className="navbar-center hidden lg:flex">
             <ul className="menu menu-horizontal px-1">{navOptions}</ul>
           </div>
           <div className="navbar-end">
-            <a className="btn btn-success btn-outline rounded-3xl border-0 border-b-8 font-bold ">Book Now</a>
+            <NavLink to="/login">
+              <a className="btn btn-success btn-outline rounded-3xl border-0 border-b-8 font-bold ">
+                Login
+              </a>
+            </NavLink>
           </div>
         </div>
       </section>
