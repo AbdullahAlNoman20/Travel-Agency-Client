@@ -1,7 +1,6 @@
+import { useLoaderData } from "react-router-dom";
+
 const Profile = () => {
-  
-  
-  
   // Event Handler
   const handleAddSpot = (event) => {
     event.preventDefault();
@@ -24,6 +23,8 @@ const Profile = () => {
         console.log(data);
       });
   };
+
+  const users = useLoaderData();
 
   return (
     <div>
@@ -52,7 +53,6 @@ const Profile = () => {
                   <section className="p-6">
                     <form
                       onSubmit={handleAddSpot}
-                      
                       noValidate=""
                       action=""
                       className="container flex flex-col mx-auto space-y-12"
@@ -82,9 +82,10 @@ const Profile = () => {
                           </div>
                         </div>
                       </fieldset>
-                      <button 
-                      type="submit"
-                      className="flex items-center justify-center w-full p-3 font-semibold tracking-wide rounded-md dark:bg-green-600 dark:text-gray-50">
+                      <button
+                        type="submit"
+                        className="flex items-center justify-center w-full p-3 font-semibold tracking-wide rounded-md dark:bg-green-600 dark:text-gray-50"
+                      >
                         Create
                       </button>
                     </form>
@@ -186,7 +187,9 @@ const Profile = () => {
       <div className="">
         <div className="container flex flex-col p-2 mx-auto sm:p-4 dark:text-gray-800">
           <div className="text-center">
-            <h2 className="mb-4 text-2xl font-semibold">All Users</h2>
+            <h2 className="mb-4 text-2xl font-semibold">
+              All Users {users.length}
+            </h2>
           </div>
 
           <div className="overflow-x-auto">
@@ -207,10 +210,20 @@ const Profile = () => {
                   <th className="p-3">Email</th>
                 </tr>
               </thead>
-              <tbody className="border-b dark:bg-gray-50 dark:border-gray-300">
+
+              {/* Single Row */}
+
+              {/* Mapping Like This: 
+{
+  users.map(user => <p key={users.id} user={user} >Hello</p>)
+} 
+*/}
+
+              {users.map((user) => (
+                <tbody key={users.id} user={user} className="border-b dark:bg-gray-50 dark:border-gray-300">
                 <tr>
                   <td className="px-3 py-2">
-                    <p>Dwight Adams</p>
+                    <p>{user.userName}</p>
                   </td>
                   <td className="px-3 py-2">
                     <p>555-873-9812</p>
@@ -220,6 +233,9 @@ const Profile = () => {
                   </td>
                 </tr>
               </tbody>
+              ))}
+
+
             </table>
           </div>
         </div>
