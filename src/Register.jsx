@@ -7,18 +7,18 @@ import { NavLink } from "react-router-dom";
 const Register = () => {
 
 // Event Handler
-const handleRegister = (event) => {
+const handleRegister = async (event) => {
     event.preventDefault();
     const form = event.target;
     const userName = form.userName.value;
-    const number = form.number.value;
+    // const number = form.number.value;
     const email = form.email.value;
     const password = form.password.value;
 
-    const newUser = { userName,number,email,password };
+    const newUser = { userName,email,password };
     console.log(newUser);
 
-    fetch("http://localhost:5000/register_users", {
+    await fetch("http://localhost:5000/register_users", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -46,10 +46,10 @@ const handleRegister = (event) => {
 				<label htmlFor="Name" className="block mb-2 text-sm">Name</label>
 				<input required type="name" name="userName" id="name" placeholder="Abdullah al noman" className="w-full px-3 py-2 border rounded-md dark:border-gray-300 dark:bg-gray-50 dark:text-gray-800" />
 			</div>
-			<div>
+			{/* <div>
 				<label htmlFor="" className="block mb-2 text-sm">Phone Number</label>
 				<input required type="name" name="number" id="name" placeholder="01764308876" className="w-full px-3 py-2 border rounded-md dark:border-gray-300 dark:bg-gray-50 dark:text-gray-800" />
-			</div>
+			</div> */}
 			<div>
 				<label htmlFor="email" className="block mb-2 text-sm">Email address</label>
 				<input required type="email" name="email" id="email" placeholder="leroy@jenkins.com" className="w-full px-3 py-2 border rounded-md dark:border-gray-300 dark:bg-gray-50 dark:text-gray-800" />
