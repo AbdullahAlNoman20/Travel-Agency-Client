@@ -13,6 +13,8 @@ import Login from './Login.jsx';
 import Profile from './Profile.jsx';
 import Register from './Register.jsx';
 import Packages from './Packages.jsx';
+import Contact from './Contact.jsx';
+import Testimonial from './Testimonial.jsx';
 
 
 
@@ -30,6 +32,14 @@ const router = createBrowserRouter([
       {
         path: '/packages',
         element: <Packages></Packages>
+      },
+      {
+        path: '/testimonial',
+        element: <Testimonial></Testimonial>
+      },
+      {
+        path: '/contact',
+        element: <Contact></Contact>
       },
       {
         path: '/profile',

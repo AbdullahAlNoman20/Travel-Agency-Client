@@ -13,19 +13,22 @@ const Nav = () => {
           <a>Packages</a>
         </li>
       </NavLink>
+      <NavLink to="testimonial">
+        <li>
+          <a>Testimonial</a>
+        </li>
+      </NavLink>
 
-      <li>
-        <a>Testimonial</a>
-      </li>
       <NavLink to="/profile">
         <li>
           <a>Profile</a>
         </li>
       </NavLink>
-
-      <li>
-        <a>Contact</a>
-      </li>
+      <NavLink to="/contact">
+        <li>
+          <a>Contact</a>
+        </li>
+      </NavLink>
     </>
   );
 
