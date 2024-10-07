@@ -5,7 +5,7 @@ const Banner = () => {
         className="hero min-h-screen rounded-3xl my-4"
         style={{
           backgroundImage:
-            "url(https://img.daisyui.com/images/stock/photo-1507358522600-9f71e620c44e.webp)",
+            "url(https://i.ibb.co.com/LdxJsFz/Dhaka-1.jpg)",
         }}
       >
         <div className="hero-overlay bg-opacity-60 rounded-3xl"></div>

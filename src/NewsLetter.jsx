@@ -17,7 +17,7 @@ const NewsLetter = () => {
             </div>
           </div>
           <img
-            src="assets/svg/doodle.svg"
+            src="https://i.ibb.co.com/LdxJsFz/Dhaka-1.jpg"
             alt=""
             className="p-6 h-52 md:h-64"
           />

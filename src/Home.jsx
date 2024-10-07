@@ -12,7 +12,7 @@ const Home = () => {
         <div className="hero bg-base-200 min-h-screen rounded-3xl">
           <div className="hero-content flex-col lg:flex-row-reverse justify-center">
             <img
-              src="https://img.daisyui.com/images/stock/photo-1635805737707-575885ab0820.webp"
+              src="https://i.ibb.co.com/wYNbSmW/11.jpg"
               className="max-w-sm rounded-lg shadow-2xl"
             />
             <div className="">
@@ -56,7 +56,6 @@ const Home = () => {
           <div className="flex justify-center gap-5">
             <div className="">
               <div className="card bg-green-100 w-96 shadow-xl">
-
                 <div className="card-body">
                   <h2 className="card-title">Highlight1</h2>
                   <p>If a dog chews shoes whose shoes does he choose?</p>
@@ -92,11 +91,8 @@ const Home = () => {
         </div>
       </section>
 
-
-{/* Discounts Section */}
-<Discounts></Discounts>
-
-
+      {/* Discounts Section */}
+      <Discounts></Discounts>
 
       {/* News Letter Section */}
       <NewsLetter></NewsLetter>
