@@ -8,15 +8,15 @@ const Profile = () => {
     const placeName = form.placeName.value;
     const description = form.description.value;
 
-    const place = { placeName, description };
-    console.log(place);
+    const newPackage = { placeName, description };
+    console.log(newPackage);
 
-    fetch("http://localhost:5000/spot", {
+    fetch('http://localhost:5000/package', {
       method: "POST",
       headers: {
         "content-type": "application/json",
       },
-      body: JSON.stringify(spot),
+      body: JSON.stringify(newPackage),
     })
       .then((req) => req.json())
       .then((data) => {
@@ -28,6 +28,8 @@ const Profile = () => {
 
   return (
     <div>
+
+      {/* Create Package */}
       <div className="flex flex-row justify-around items-center py-6 ">
         {/* Left */}
         <div className="">
@@ -50,6 +52,8 @@ const Profile = () => {
 
                 {/* Form in here */}
                 <div className="">
+
+                  {/* Form  */}
                   <section className="p-6">
                     <form
                       onSubmit={handleAddSpot}
