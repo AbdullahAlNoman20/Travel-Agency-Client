@@ -1,4 +1,7 @@
+import { signOut } from "firebase/auth";
+import { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
+import auth from "../firebase.init";
 
 const Nav = () => {
   const navOptions = (
@@ -31,6 +34,27 @@ const Nav = () => {
       </NavLink>
     </>
   );
+
+  const [users, setUsers] = useState([]);
+
+  useEffect(() => {
+    fetch("http://localhost:5000/register_users")
+      .then((res) => res.json())
+      // .then(data => console.log(data) )
+      .then((data) => setUsers(data));
+  }, []);
+
+  // Sign Out
+  const handleSignOut = () => {
+    signOut(auth)
+      .then((result) => {
+        console.log(result);
+        setUsers(null);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
 
   return (
     <div className="bg-gray-50 border-b-2">
@@ -73,11 +97,19 @@ const Nav = () => {
             <ul className="menu menu-horizontal px-1">{navOptions}</ul>
           </div>
           <div className="navbar-end">
-            <NavLink to="/login">
-              <a className="btn btn-success btn-outline rounded-3xl border-0 border-b-8 font-bold ">
-                Login
-              </a>
-            </NavLink>
+            {users ? (
+              <div className="">
+                <button onClick={handleSignOut} className="btn btn-success btn-outline rounded-3xl border-0 border-b-8 font-bold ">
+                  Sign-out
+                </button>
+              </div>
+            ) : (
+              <NavLink to="/login">
+                <a className="btn btn-success btn-outline rounded-3xl border-0 border-b-8 font-bold ">
+                  Login
+                </a>
+              </NavLink>
+            )}
           </div>
         </div>
       </section>

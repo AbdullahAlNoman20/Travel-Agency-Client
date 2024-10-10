@@ -1,7 +1,6 @@
+import { createUserWithEmailAndPassword } from "firebase/auth";
 import { NavLink } from "react-router-dom";
-
-
-
+import auth from "../firebase.init";
 
 
 const Register = () => {
@@ -11,7 +10,6 @@ const handleRegister = async (event) => {
     event.preventDefault();
     const form = event.target;
     const userName = form.userName.value;
-    // const number = form.number.value;
     const email = form.email.value;
     const password = form.password.value;
 
@@ -29,11 +27,25 @@ const handleRegister = async (event) => {
       .then((data) => {
         console.log(data);
       });
+
+	//   Create User For Auth
+	createUserWithEmailAndPassword(auth,email,password)
+	.then(result =>{
+		console.log(result.user)
+	})
+	.catch(error =>{
+		console.error(error)
+	})
+
+
+
   };
 
 
     return (
         <div>
+
+
             <div className="flex justify-center items-center py-12">
             <div className="flex flex-col max-w-md p-6 rounded-md sm:p-10 dark:bg-gray-50 dark:text-gray-800">
 	<div className="mb-8 text-center">
@@ -75,6 +87,9 @@ const handleRegister = async (event) => {
 	</form>
 </div>
             </div>
+
+
+
         </div>
     );
 };
