@@ -1,12 +1,18 @@
-import { createUserWithEmailAndPassword } from "firebase/auth";
+
+import { useContext } from "react";
 import { NavLink } from "react-router-dom";
-import auth from "../firebase.init";
+import { AuthContext } from "./Providers/AuthProvider";
+
 
 
 const Register = () => {
 
+	const {createPerson} = useContext(AuthContext)
+
+
 // Event Handler
-const handleRegister = async (event) => {
+const handleRegister = (event) => {
+
     event.preventDefault();
     const form = event.target;
     const userName = form.userName.value;
@@ -16,7 +22,20 @@ const handleRegister = async (event) => {
     const newUser = { userName,email,password };
     console.log(newUser);
 
-    await fetch("http://localhost:5000/register_users", {
+	// Create Person in ForeBase
+	createPerson(email,password)
+	.then(
+		result =>{
+			console.log(result.person)
+		}
+	)
+	.catch(
+		error => {
+			console.error(error)
+		}
+	)
+
+     fetch("http://localhost:5000/register_users", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -25,18 +44,10 @@ const handleRegister = async (event) => {
     })
       .then((req) => req.json())
       .then((data) => {
+		form.reset()
         console.log(data);
+		alert('Register Successfully')
       });
-
-	//   Create User For Auth
-	createUserWithEmailAndPassword(auth,email,password)
-	.then(result =>{
-		console.log(result.user)
-	})
-	.catch(error =>{
-		console.error(error)
-	})
-
 
 
   };

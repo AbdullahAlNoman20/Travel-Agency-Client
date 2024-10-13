@@ -1,25 +1,20 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
+import { StrictMode } from "react";
+import { createRoot } from "react-dom/client";
 
-
-import {
-  createBrowserRouter,
-  RouterProvider,
-} from "react-router-dom";
-import Root from './Root.jsx';
-import Error from './Error.jsx';
-import Home from './Home.jsx';
-import Login from './Login.jsx';
-import Profile from './Profile.jsx';
-import Register from './Register.jsx';
-import Packages from './Packages.jsx';
-import Contact from './Contact.jsx';
-import Testimonial from './Testimonial.jsx';
-import PackageDetails from './PackageDetails.jsx';
-import PackageUpdate from './PackageUpdate.jsx';
-
-
-
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import Root from "./Root.jsx";
+import Error from "./Error.jsx";
+import Home from "./Home.jsx";
+import Login from "./Login.jsx";
+import Profile from "./Profile.jsx";
+import Register from "./Register.jsx";
+import Packages from "./Packages.jsx";
+import Contact from "./Contact.jsx";
+import Testimonial from "./Testimonial.jsx";
+import PackageDetails from "./PackageDetails.jsx";
+import PackageUpdate from "./PackageUpdate.jsx";
+import AuthProvider from "./Providers/AuthProvider.jsx";
+import PrivateRout from "./PrivateRout.jsx";
 
 const router = createBrowserRouter([
   {
@@ -28,56 +23,56 @@ const router = createBrowserRouter([
     errorElement: <Error></Error>,
     children: [
       {
-        path: '/',
-        element: <Home></Home>
+        path: "/",
+        element: <Home></Home>,
       },
       {
-        path: '/packages',
-        element: <Packages></Packages>
+        path: "/packages",
+        element: <Packages></Packages>,
       },
       {
-        path: '/package_details/:id',
+        path: "/package_details/:id",
         element: <PackageDetails></PackageDetails>,
-        loader: ({params}) => fetch(`http://localhost:5000/package_details/${params.id}`)
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/package_details/${params.id}`),
       },
       {
-        path: '/update_package/:id',
+        path: "/update_package/:id",
         element: <PackageUpdate></PackageUpdate>,
-        loader: ({params}) => fetch(`http://localhost:5000/update_package/${params.id}`)
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/update_package/${params.id}`),
       },
       {
-        path: '/testimonial',
-        element: <Testimonial></Testimonial>
+        path: "/testimonial",
+        element: <Testimonial></Testimonial>,
       },
       {
-        path: '/contact',
-        element: <Contact></Contact>
+        path: "/contact",
+        element: <Contact></Contact>,
       },
       {
-        path: '/profile',
-        element: <Profile></Profile>,
-        loader: () => fetch('http://localhost:5000/register_users')
-      
+        path: "/profile",
+        element: <PrivateRout><Profile></Profile></PrivateRout>,
+        loader: () => fetch("http://localhost:5000/register_users"),
       },
       {
-        path: '/login',
-        element: <Login></Login>
+        path: "/login",
+        element: <Login></Login>,
       },
       {
-        path: '/register',
-        element: <Register></Register>
+        path: "/register",
+        element: <Register></Register>,
       },
-    ]
+    ],
   },
 ]);
 
-
-
-
-createRoot(document.getElementById('root')).render(
+createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <div className="max-w-screen-xl mx-auto ">
-    <RouterProvider router={router} />
-    </div>
-  </StrictMode>,
-)
+    <AuthProvider>
+      <div className="max-w-screen-xl mx-auto ">
+        <RouterProvider router={router} />
+      </div>
+    </AuthProvider>
+  </StrictMode>
+);

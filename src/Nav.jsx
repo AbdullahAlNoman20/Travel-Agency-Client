@@ -1,9 +1,10 @@
-import { signOut } from "firebase/auth";
-import { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
-import auth from "../firebase.init";
+import { useContext } from "react";
+import { AuthContext } from "./Providers/AuthProvider";
 
 const Nav = () => {
+  const { person, logOut } = useContext(AuthContext);
+
   const navOptions = (
     <>
       <NavLink to="/">
@@ -32,24 +33,25 @@ const Nav = () => {
           <a>Contact</a>
         </li>
       </NavLink>
+
+      {person && (
+        <>
+          <NavLink to="/My_Card">
+            <li>
+              <a>My Card</a>
+            </li>
+          </NavLink>
+        </>
+      )}
     </>
   );
 
-  const [users, setUsers] = useState([]);
-
-  useEffect(() => {
-    fetch("http://localhost:5000/register_users")
-      .then((res) => res.json())
-      // .then(data => console.log(data) )
-      .then((data) => setUsers(data));
-  }, []);
-
   // Sign Out
   const handleSignOut = () => {
-    signOut(auth)
+    logOut()
       .then((result) => {
+        alert("LogOut Successfully");
         console.log(result);
-        setUsers(null);
       })
       .catch((error) => {
         console.log(error);
@@ -97,9 +99,13 @@ const Nav = () => {
             <ul className="menu menu-horizontal px-1">{navOptions}</ul>
           </div>
           <div className="navbar-end">
-            {users ? (
-              <div className="">
-                <button onClick={handleSignOut} className="btn btn-success btn-outline rounded-3xl border-0 border-b-8 font-bold ">
+            {person ? (
+              <div className="flex justify-center items-center gap-3">
+                <h1 className="font-bold">{person.email}</h1>
+                <button
+                  onClick={handleSignOut}
+                  className="btn btn-success btn-outline rounded-3xl border-0 border-b-8 font-bold "
+                >
                   Sign-out
                 </button>
               </div>
