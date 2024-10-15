@@ -23,14 +23,11 @@ const PackageUpdate = () => {
     })
       .then((req) => req.json())
       .then((data) => {
-        if(data.insertedID){
-          alert('Package Update Successfully')
-          form.reset();
-        }
-        
         console.log(data);
         
       });
+        alert('Package Update Successfully')
+        
   };
 
 

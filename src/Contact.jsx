@@ -1,7 +1,11 @@
+import { Helmet } from "react-helmet";
 
 const Contact = () => {
     return (
         <div>
+			<Helmet>
+        <title>Contact</title>
+      </Helmet>
             <section className="dark:bg-gray-100 dark:text-gray-800">
 	<div className="container flex flex-col items-center p-4 mx-auto md:p-8">
 		<h1 className="text-3xl font-bold leading-none text-center sm:text-4xl">Help Center</h1>

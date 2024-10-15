@@ -1,5 +1,3 @@
-import React from "react";
-
 const NewsLetter = () => {
   return (
     <div>
@@ -7,13 +5,16 @@ const NewsLetter = () => {
         <div className="flex flex-col justify-between">
           <div className="space-y-2">
             <h2 className="text-4xl font-bold leading-tight lg:text-5xl">
-              Let's talk!
+              Stay Connected with GlobeTrek
             </h2>
             <div className="dark:text-gray-600">
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quas
-              consectetur alias dicta ut optio molestias exercitationem porro,
-              explicabo vero rem error adipisci quisquam provident rerum.
-              Assumenda reiciendis omnis illum accusamus.
+              Never miss an update! Subscribe to the GlobeTrek newsletter and be
+              the first to know about exclusive travel deals, new destinations,
+              and insider tips from experts. Whether you’re looking for
+              inspiration for your next adventure or updates on the latest
+              travel trends, our newsletter brings the world of travel directly
+              to your inbox. Stay informed and get ready to explore the globe
+              with GlobeTrek. Sign up today!
             </div>
           </div>
           <img

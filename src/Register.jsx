@@ -1,108 +1,143 @@
-
-import { useContext } from "react";
-import { NavLink } from "react-router-dom";
+import { Navigate, NavLink } from "react-router-dom";
 import { AuthContext } from "./Providers/AuthProvider";
-
-
+import { useContext } from "react";
+import { ToastContainer, toast } from 'react-toastify';
 
 const Register = () => {
+  const { createPerson } = useContext(AuthContext);
 
-	const {createPerson} = useContext(AuthContext)
-
-
-// Event Handler
-const handleRegister = (event) => {
-
+  // Event Handler
+  const handleRegister = async (event) => {
     event.preventDefault();
     const form = event.target;
-    const userName = form.userName.value;
+    const username = form.username.value;
     const email = form.email.value;
+    const number = form.number.value;
     const password = form.password.value;
 
-    const newUser = { userName,email,password };
+    const newUser = { username, email, number, password };
     console.log(newUser);
 
-	// Create Person in ForeBase
-	createPerson(email,password)
-	.then(
-		result =>{
-			console.log(result.person)
-		}
-	)
-	.catch(
-		error => {
-			console.error(error)
-		}
-	)
-
-     fetch("http://localhost:5000/register_users", {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(newUser),
-    })
-      .then((req) => req.json())
-      .then((data) => {
-		form.reset()
-        console.log(data);
-		alert('Register Successfully')
+    // Create Person in FireBase
+    createPerson(email, password)
+      .then((result) => {
+        form.reset();
+        toast.success("Registered Successfully");
+        Navigate("/");
+        console.log(result.person);
+      })
+      .catch((error) => {
+        console.error(error);
       });
 
-
+      // Send Data to the Server
+     await fetch("http://localhost:5000/register_users", {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(newUser),
+      })
+        .then((req) => req.json())
+        .then((data) => {
+      form.reset()
+          console.log(data);
+        });
   };
 
-
-    return (
-        <div>
-
-
-            <div className="flex justify-center items-center py-12">
-            <div className="flex flex-col max-w-md p-6 rounded-md sm:p-10 dark:bg-gray-50 dark:text-gray-800">
-	<div className="mb-8 text-center">
-		<h1 className="my-3 text-4xl font-bold">Sign up</h1>
-		<p className="text-sm dark:text-gray-600">Sign up to access our Service</p>
-	</div>
-	<form onSubmit={handleRegister} noValidate="" action="" className="space-y-12">
-		<div className="space-y-4">
-			<div>
-				<label htmlFor="Name" className="block mb-2 text-sm">Name</label>
-				<input required type="name" name="userName" id="name" placeholder="Abdullah al noman" className="w-full px-3 py-2 border rounded-md dark:border-gray-300 dark:bg-gray-50 dark:text-gray-800" />
-			</div>
-			{/* <div>
-				<label htmlFor="" className="block mb-2 text-sm">Phone Number</label>
-				<input required type="name" name="number" id="name" placeholder="01764308876" className="w-full px-3 py-2 border rounded-md dark:border-gray-300 dark:bg-gray-50 dark:text-gray-800" />
-			</div> */}
-			<div>
-				<label htmlFor="email" className="block mb-2 text-sm">Email address</label>
-				<input required type="email" name="email" id="email" placeholder="noman@gmail.com" className="w-full px-3 py-2 border rounded-md dark:border-gray-300 dark:bg-gray-50 dark:text-gray-800" />
-			</div>
-			<div>
-				<div className="flex justify-between mb-2">
-					<label htmlFor="password" className="text-sm"> Create Password</label>
-				</div>
-				<input required type="password" name="password" id="password" placeholder="*****" className="w-full px-3 py-2 border rounded-md dark:border-gray-300 dark:bg-gray-50 dark:text-gray-800" />
-			</div>
-		</div>
-		<div className="space-y-2">
-			<div>
-				<button type="submit" className="w-full px-8 py-3 font-semibold rounded-md dark:bg-violet-600 dark:text-gray-50">Sign in</button>
-			</div>
-			<p className="px-6 text-sm text-center dark:text-gray-600">Already have an account yet?
-                <NavLink to="/login">
-                <a className="hover:underline dark:text-violet-600">Log in</a>.
-                </NavLink>
-				
-			</p>
-		</div>
-	</form>
-</div>
+  return (
+    <div>
+      <ToastContainer/>
+      <section className="flex justify-center p-5">
+        <div className="border w-full max-w-md p-8 space-y-3 rounded-xl dark:bg-gray-50 dark:text-gray-800">
+          <h1 className="text-2xl font-bold text-center">Register Now</h1>
+          <form
+            onSubmit={handleRegister}
+            noValidate=""
+            action=""
+            className="space-y-6"
+          >
+            <div className="space-y-1 text-sm">
+              <label htmlFor="username" className="block dark:text-gray-600">
+                Username
+              </label>
+              <input
+                type="text"
+                name="username"
+                id="username"
+                placeholder="Username"
+                className="border w-full px-4 py-3 rounded-md dark:border-gray-300 dark:bg-gray-50 dark:text-gray-800 focus:dark:border-violet-600"
+              />
             </div>
+            <div className="space-y-1">
+              <label htmlFor="email" className="block text-sm">
+                Email address
+              </label>
+              <input
+                type="email"
+                name="email"
+                id="email"
+                placeholder="noman@gmail.com"
+                className="w-full px-3 py-2 border rounded-md dark:border-gray-300 dark:bg-gray-50 dark:text-gray-800 focus:dark:border-violet-600"
+              />
+            </div>
+            <div className="space-y-1 text-sm">
+              <label htmlFor="username" className="block dark:text-gray-600">
+                Phone Number
+              </label>
+              <input
+                type="text"
+                name="number"
+                id="phone_number"
+                placeholder="Phone Number"
+                className="border w-full px-4 py-3 rounded-md dark:border-gray-300 dark:bg-gray-50 dark:text-gray-800 focus:dark:border-violet-600"
+              />
+            </div>
+            <div className="space-y-1 text-sm">
+              <label htmlFor="password" className="block dark:text-gray-600">
+                Password
+              </label>
+              <input
+                type="password"
+                name="password"
+                id="password"
+                placeholder="Password"
+                className="border w-full px-4 py-3 rounded-md dark:border-gray-300 dark:bg-gray-50 dark:text-gray-800 focus:dark:border-violet-600"
+              />
+              <div className="flex justify-end text-xs dark:text-gray-600">
+                <a
+                  className="text-red-500 underline"
+                  rel="noopener noreferrer"
+                  href="#"
+                >
+                  ! Rules
+                </a>
+              </div>
+            </div>
+            <button
+              type="submit"
+              className="block w-full p-3 text-center rounded-sm dark:text-gray-50 dark:bg-violet-600"
+            >
+              Sign in
+            </button>
+          </form>
 
-
-
+          <p className="text-xs text-center sm:px-6 dark:text-gray-600">
+            Already have an account?
+            <NavLink to="/login">
+              <a
+                rel="noopener noreferrer"
+                href="#"
+                className="ml-2 text-sky-500 underline"
+              >
+                Sign in
+              </a>
+            </NavLink>
+          </p>
         </div>
-    );
+      </section>
+    </div>
+  );
 };
 
 export default Register;

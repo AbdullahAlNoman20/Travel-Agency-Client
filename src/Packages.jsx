@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
+import { Helmet } from "react-helmet";
 
 const Packages = () => {
   const [packages, setPackages] = useState([]);
@@ -14,7 +15,7 @@ const Packages = () => {
   // Handle delete
   const handleDelete = async (id) => {
     try {
-      const response = await fetch(`http://localhost:5000/package/${id}`, {
+      const response = await fetch(`http://localhost:5000/delete_package/${id}`, {
         method: "DELETE",
       });
 
@@ -32,18 +33,26 @@ const Packages = () => {
 
   return (
     <div>
-      <h1>Total Package: {packages.length}</h1>
+      <Helmet>
+        <title>Packages</title>
+      </Helmet>
+
+      <div className="flex justify-center items-center p-4">
+        <div className="">
+          <p>Now {packages.length} Package Can Available for Travel </p>
+        </div>
+      </div>
 
       {/* Mapping the Package */}
-      <div className="grid grid-cols-2">
+      <div className="grid grid-cols-3 gap-12">
         {packages.map((spot) => (
           <div key={spot.id}>
-            <div className=" py-5 grid grid-cols-3 gap-2">
-              <div className="max-w-xs rounded-md shadow-md dark:bg-gray-50 dark:text-gray-800">
+            <div className="">
+              <div className="p-5 rounded-md shadow-md dark:bg-gray-50 dark:text-gray-800">
                 <img
-                  src="https://source.unsplash.com/random/300x300/?2"
+                  src="https://i.ibb.co.com/dmYWQZx/5.jpg"
                   alt=""
-                  className="object-cover object-center w-full rounded-t-md h-72 dark:bg-gray-500"
+                  className="object-cover object-center w-full rounded-md h-72 dark:bg-gray-500"
                 />
                 <div className="flex flex-col justify-between p-6 space-y-8">
                   <div className="space-y-2">
@@ -55,7 +64,7 @@ const Packages = () => {
                   <NavLink to={`/package_details/${spot.id}`}>
                     <button
                       type="button"
-                      className="flex items-center justify-center w-full p-3 font-semibold tracking-wide rounded-md dark:bg-violet-900 dark:text-gray-50"
+                      className="btn btn-outline flex items-center justify-center w-full p-3 font-semibold tracking-wide rounded-md dark:bg-violet-900 dark:text-gray-50"
                     >
                       View Details
                     </button>
@@ -70,7 +79,7 @@ const Packages = () => {
                   <NavLink to={`/update_package/${spot.id}`}>
                     <button
                       type="button"
-                      className="flex items-center justify-center w-full p-3 font-semibold tracking-wide rounded-md dark:bg-green-600 dark:text-gray-50"
+                      className="btn btn-outline flex items-center justify-center w-full p-3 font-semibold tracking-wide rounded-md dark:bg-green-600 dark:text-gray-50"
                     >
                       Update
                     </button>

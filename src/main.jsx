@@ -1,5 +1,6 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
+import 'react-toastify/dist/ReactToastify.css';
 
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Root from "./Root.jsx";
@@ -15,6 +16,7 @@ import PackageDetails from "./PackageDetails.jsx";
 import PackageUpdate from "./PackageUpdate.jsx";
 import AuthProvider from "./Providers/AuthProvider.jsx";
 import PrivateRout from "./PrivateRout.jsx";
+import My_Card from "./My_Card.jsx";
 
 const router = createBrowserRouter([
   {
@@ -49,6 +51,10 @@ const router = createBrowserRouter([
       {
         path: "/contact",
         element: <Contact></Contact>,
+      },
+      {
+        path: "/my_card",
+        element: <My_Card></My_Card>,
       },
       {
         path: "/profile",

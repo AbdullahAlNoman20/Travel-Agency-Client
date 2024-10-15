@@ -1,9 +1,23 @@
 import { NavLink } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "./Providers/AuthProvider";
+import { ToastContainer, toast } from "react-toastify";
 
 const Nav = () => {
   const { person, logOut } = useContext(AuthContext);
+
+  // Sign Out
+  const handleSignOut = () => {
+    logOut()
+      .then((result) => {
+        toast.warn("Logout Successfully");
+        // alert("LogOut Successfully");
+        console.log(result);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
 
   const navOptions = (
     <>
@@ -23,11 +37,16 @@ const Nav = () => {
         </li>
       </NavLink>
 
-      <NavLink to="/profile">
-        <li>
-          <a>Profile</a>
-        </li>
-      </NavLink>
+      {person && (
+        <>
+          <NavLink to="/profile">
+            <li>
+              <a>Profile</a>
+            </li>
+          </NavLink>
+        </>
+      )}
+
       <NavLink to="/contact">
         <li>
           <a>Contact</a>
@@ -46,20 +65,9 @@ const Nav = () => {
     </>
   );
 
-  // Sign Out
-  const handleSignOut = () => {
-    logOut()
-      .then((result) => {
-        alert("LogOut Successfully");
-        console.log(result);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  };
-
   return (
-    <div className="bg-gray-50 border-b-2">
+    <div className="bg-gray-50">
+      <ToastContainer />
       <section>
         <div className="navbar">
           <div className="navbar-start">
@@ -91,29 +99,29 @@ const Nav = () => {
                 {navOptions}
               </ul>
             </div>
-            <a className="text-2xl font-extrabold text-green-600">
-              Mount Ride{" "}
+            <a className="text-3xl font-extrabold text-green-600">
+            GlobeTrek{" "}
             </a>
           </div>
           <div className="navbar-center hidden lg:flex">
             <ul className="menu menu-horizontal px-1">{navOptions}</ul>
           </div>
-          <div className="navbar-end">
+          <div className="navbar-end border rounded-2xl p-2">
             {person ? (
-              <div className="flex justify-center items-center gap-3">
-                <h1 className="font-bold">{person.email}</h1>
-                <button
-                  onClick={handleSignOut}
-                  className="btn btn-success btn-outline rounded-3xl border-0 border-b-8 font-bold "
-                >
-                  Sign-out
-                </button>
+              <div className="flex items-center">
+                <h1 className="mr-3">{person.email}</h1>
+                <NavLink to="/login">
+                  <button
+                    onClick={handleSignOut}
+                    className="btn btn-outline btn-success"
+                  >
+                    LogOut
+                  </button>
+                </NavLink>
               </div>
             ) : (
               <NavLink to="/login">
-                <a className="btn btn-success btn-outline rounded-3xl border-0 border-b-8 font-bold ">
-                  Login
-                </a>
+                <a className="btn btn-outline btn-warning">Login</a>
               </NavLink>
             )}
           </div>
