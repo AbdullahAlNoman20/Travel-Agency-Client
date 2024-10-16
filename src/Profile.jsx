@@ -2,10 +2,10 @@ import { useContext, useEffect, useState } from "react";
 import { Helmet } from "react-helmet";
 import { AuthContext } from "./Providers/AuthProvider";
 import { useLoaderData } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const Profile = () => {
   const { person } = useContext(AuthContext);
-
 
   // Event Handler
   const handleAddSpot = (event) => {
@@ -17,7 +17,7 @@ const Profile = () => {
     const newPackage = { placeName, description };
     console.log(newPackage);
 
-    fetch('http://localhost:5000/package', {
+    fetch("http://localhost:5000/package", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -26,20 +26,18 @@ const Profile = () => {
     })
       .then((req) => req.json())
       .then((data) => {
-        if(data.insertedID){
-          alert('Package Added Successfully')
+        if (data.insertedID) {
+          alert("Package Added Successfully");
           form.reset();
         }
-        
+
         console.log(data);
-        
       });
   };
 
   const users = useLoaderData();
 
   const [register_users, setRegister_users] = useState([]);
-
 
   useEffect(() => {
     fetch("http://localhost:5000/register_users")
@@ -48,36 +46,33 @@ const Profile = () => {
       .catch((error) => console.error("Error fetching data:", error));
   }, []);
 
-
   // Handle delete
-  const handleDelete = async (id) => {
-    try {
-      const response = await fetch(`http://localhost:5000/register_users/${id}`, {
+  const handleDelete = (id) => {
+    const proceed = confirm("Are You Sure to DELETE this User ???");
+
+    if (proceed) {
+      fetch(`http://localhost:5000/register_users/${id}`, {
         method: "DELETE",
-      });
-
-
-      if (response.ok) {
-        console.log(`Successfully deleted entry with ID: ${id}`);
-        setRegister_users(register_users.filter((spot) => spot.id !== id));
-        alert("Deleted Successfully");
-      } else {
-        console.error("Error deleting entry");
-      }
-    } catch (error) {
-      console.error("Error:", error);
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          console.log(data);
+          if (data.deletedCount > 0) {
+            toast.success("Deleted Successfully");
+            const remaining = register_users.filter((user) => user.id !== id);
+            setRegister_users(remaining);
+          }
+        });
     }
   };
-
-
 
   return (
     <div>
       <Helmet>
-        <title>Profile</title>
+        <title>GlobeTrek: Profile</title>
       </Helmet>
- {/* User Information */}
- <section className="flex justify-center mt-5">
+      {/* User Information */}
+      <section className="flex justify-center mt-5">
         <div className="border flex flex-col justify-center max-w-xs p-6 shadow-md rounded-xl sm:px-12 dark:bg-gray-50 dark:text-gray-800">
           <img
             src="https://i.ibb.co.com/Tv0Mppf/nmn.jpg"
@@ -155,7 +150,6 @@ const Profile = () => {
         </div>
       </section>
 
-
       {/* Create Package */}
       <div className="flex flex-row justify-around items-center py-6 ">
         {/* Left */}
@@ -179,7 +173,6 @@ const Profile = () => {
 
                 {/* Form in here */}
                 <div className="">
-
                   {/* Form  */}
                   <section className="p-6">
                     <form
@@ -232,7 +225,6 @@ const Profile = () => {
             </div>
           </section>
         </div>
-       
       </div>
 
       {/* All User List */}
@@ -266,33 +258,35 @@ const Profile = () => {
 
               {/* Single Row */}
 
-              {/* Mapping Like This: 
-{
-  users.map(user => <p key={users.id} user={user} >Hello</p>)
-} 
-*/}
-
               {users.map((user) => (
-                <tbody key={users.id} user={user} className="border-b dark:bg-gray-50 dark:border-gray-300">
-                <tr>
-                  <td className="px-3 py-2">
-                    <p>{user.username}</p>
-                  </td>
-                  <td className="px-3 py-2">
-                    <p>{user.number}</p>
-                  </td>
-                  <td className="px-3 py-2">
-                    <p>{user.email}</p>
-                  </td>
-                  <td className="px-3 py-2">
-                    <button onClick={() => handleDelete(user.id)} className="btn mr-2 btn-outline btn-warning">Delete</button>
-                    <button className="btn btn-outline btn-success">Update</button>
-                  </td>
-                </tr>
-              </tbody>
+                <tbody
+                  key={user.id}
+                  className="border-b dark:bg-gray-50 dark:border-gray-300"
+                >
+                  <tr>
+                    <td className="px-3 py-2">
+                      <p>{user.username}</p>
+                    </td>
+                    <td className="px-3 py-2">
+                      <p>{user.number}</p>
+                    </td>
+                    <td className="px-3 py-2">
+                      <p>{user.email}</p>
+                    </td>
+                    <td className="px-3 py-2">
+                      <button
+                        onClick={() => handleDelete(user.id)}
+                        className="btn mr-2 btn-outline btn-warning"
+                      >
+                        Delete
+                      </button>
+                      <button className="btn btn-outline btn-success">
+                        Update
+                      </button>
+                    </td>
+                  </tr>
+                </tbody>
               ))}
-
-
             </table>
           </div>
         </div>

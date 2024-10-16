@@ -1,6 +1,41 @@
+import { useState } from "react";
 import { Typewriter } from "react-simple-typewriter";
+import Search_Result from "./Search_Result";
 
 const Banner = () => {
+  const [whereToGo, setWhereToGo] = useState("");
+  const [when, setWhen] = useState("");
+  const [type, setType] = useState("");
+
+  // Search Data
+  const [searchResults, setSearchResults] = useState([]);
+
+  const handleSearch = () => {
+    // Construct the search query
+    const searchParams = {
+      whereToGo,
+      when,
+      type,
+    };
+    console.log(searchParams);
+
+    // Send the search parameters to the backend
+    fetch("http://localhost:5000/search", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(searchParams),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        setSearchResults(data);
+      })
+      .catch((error) => {
+        console.error("Error searching:", error);
+      });
+  };
+
   return (
     <div>
       <div
@@ -16,13 +51,13 @@ const Banner = () => {
               <span>
                 <Typewriter
                   words={[
-                    "Navigating New Horizons with Virtual and Personalized Real-Time Travel Guidance",
+                    "Virtual Travel Experiences","Real-Time Travel Guidance","Global Adventure Tours","Personalized Travel Planning","Destination Exploration"
                   ]}
                   loop={""}
                   cursor
                   cursorStyle="✒️"
-                  typeSpeed={20}
-                  deleteSpeed={50}
+                  typeSpeed={50}
+                  deleteSpeed={10}
                   delaySpeed={1000}
                 />
               </span>
@@ -44,8 +79,12 @@ const Banner = () => {
             {/* Button Section */}
             <div className=" bg-slate-300 bg-opacity-40 rounded-lg p-5 text-black lg:flex justify-around">
               <div className="">
-                <select className="select select-bordered w-full max-w-xs">
-                  <option disabled selected>
+                <select
+                  value={whereToGo}
+                  onChange={(e) => setWhereToGo(e.target.value)}
+                  className="select select-bordered w-full max-w-xs"
+                >
+                  <option disabled value="">
                     Where To Go
                   </option>
                   <option>Dhaka</option>
@@ -53,8 +92,12 @@ const Banner = () => {
                 </select>
               </div>
               <div className="">
-                <select className="select select-bordered w-full max-w-xs">
-                  <option disabled selected>
+                <select
+                  value={when}
+                  onChange={(e) => setWhen(e.target.value)}
+                  className="select select-bordered w-full max-w-xs"
+                >
+                  <option disabled value="">
                     When
                   </option>
                   <option>Winter</option>
@@ -62,18 +105,27 @@ const Banner = () => {
                 </select>
               </div>
               <div className="">
-                <select className="select select-bordered w-full max-w-xs">
-                  <option disabled selected>
+                <select
+                  value={type}
+                  onChange={(e) => setType(e.target.value)}
+                  className="select select-bordered w-full max-w-xs"
+                >
+                  <option disabled value="">
                     Select Type
                   </option>
                   <option>Classic</option>
                   <option>Economy</option>
                 </select>
               </div>
-              <button className="btn btn-primary">Search</button>
+              <button onClick={handleSearch} className="btn btn-primary">
+                Search
+              </button>
             </div>
           </div>
         </div>
+      </div>
+      <div className="">
+        <Search_Result results={searchResults}></Search_Result>
       </div>
     </div>
   );

@@ -1,6 +1,11 @@
+import { Helmet } from "react-helmet";
+
 const My_Card = () => {
   return (
     <div>
+      <Helmet>
+        <title>GlobeTrek: My Card</title>
+      </Helmet>
       <section className="flex justify-center p-5">
         <div className="border rounded-3xl flex flex-col max-w-3xl p-6 space-y-4 sm:p-10 dark:bg-gray-50 dark:text-gray-800">
           <h2 className="text-xl font-semibold">Your cart</h2>

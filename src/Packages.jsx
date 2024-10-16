@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import { Helmet } from "react-helmet";
+import { toast } from "react-toastify";
 
 const Packages = () => {
   const [packages, setPackages] = useState([]);
@@ -13,33 +14,46 @@ const Packages = () => {
   }, []);
 
   // Handle delete
-  const handleDelete = async (id) => {
-    try {
-      const response = await fetch(`http://localhost:5000/delete_package/${id}`, {
-        method: "DELETE",
-      });
+  const handleDelete = (id) => {
+    const proceed = confirm("Are You Sure to DELETE ???");
 
-      if (response.ok) {
-        console.log(`Successfully deleted entry with ID: ${id}`);
-        setPackages(packages.filter((spot) => spot.id !== id));
-        alert("Deleted Successfully");
-      } else {
-        console.error("Error deleting entry");
-      }
-    } catch (error) {
-      console.error("Error:", error);
+    if (proceed) {
+      fetch(`http://localhost:5000/delete_package/${id}`, {
+        method: "DELETE",
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          console.log(data);
+          if (data.deletedCount > 0) {
+            toast.success("Deleted Successfully");
+            const remaining = packages.filter((spot) => spot.id !== id);
+            setPackages(remaining);
+          }
+        });
     }
   };
 
   return (
     <div>
       <Helmet>
-        <title>Packages</title>
+        <title>GlobeTrek: Packages</title>
       </Helmet>
 
       <div className="flex justify-center items-center p-4">
         <div className="">
-          <p>Now {packages.length} Package Can Available for Travel </p>
+          <h1 className="text-center text-xl font-semibold">
+            Explore the World, Virtually and Beyond. Now {packages.length}{" "}
+            Package Can Available for Travel{" "}
+          </h1 >
+          <p>
+            At GlobeTrek, we redefine travel by merging the excitement of
+            real-world adventures with the convenience of virtual exploration.
+            Whether you're planning your next getaway or just exploring new
+            destinations from the comfort of your home, GlobeTrek provides
+            detailed guides, immersive virtual tours, and real-time insights,
+            ensuring every journey is memorable, safe, and personalized. Start
+            navigating new horizons today!
+          </p>
         </div>
       </div>
 

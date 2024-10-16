@@ -4,7 +4,7 @@ const Contact = () => {
     return (
         <div>
 			<Helmet>
-        <title>Contact</title>
+        <title>GlobeTrek: Contact</title>
       </Helmet>
             <section className="dark:bg-gray-100 dark:text-gray-800">
 	<div className="container flex flex-col items-center p-4 mx-auto md:p-8">
