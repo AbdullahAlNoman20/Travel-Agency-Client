@@ -23,17 +23,17 @@ const Nav = () => {
     <>
       <NavLink to="/">
         <li>
-          <a>Home</a>
+          <a><i className="fa fa-home" aria-hidden="true"></i> Home</a>
         </li>
       </NavLink>
       <NavLink to="packages">
         <li>
-          <a>Packages</a>
+          <a><i className="fa fa-map" aria-hidden="true"></i> Packages</a>
         </li>
       </NavLink>
       <NavLink to="testimonial">
         <li>
-          <a>Testimonial</a>
+          <a><i className="fas fa-user-check    "></i> About Us</a>
         </li>
       </NavLink>
 
@@ -41,23 +41,17 @@ const Nav = () => {
         <>
           <NavLink to="/profile">
             <li>
-              <a>Profile</a>
+              <a><i className="fa fa-user-circle" aria-hidden="true"></i> Profile</a>
             </li>
           </NavLink>
         </>
       )}
 
-      <NavLink to="/contact">
-        <li>
-          <a>Contact</a>
-        </li>
-      </NavLink>
-
       {person && (
         <>
           <NavLink to="/My_Card">
             <li>
-              <a>My Card</a>
+              <a><i className="fa fa-shopping-bag" aria-hidden="true"></i> My Card</a>
             </li>
           </NavLink>
         </>
@@ -66,7 +60,7 @@ const Nav = () => {
   );
 
   return (
-    <div className="bg-gray-50">
+    <div className="bg-green-100">
       <ToastContainer />
       <section>
         <div className="navbar">
@@ -99,29 +93,29 @@ const Nav = () => {
                 {navOptions}
               </ul>
             </div>
-            <a className="text-3xl font-extrabold text-green-600">
-            GlobeTrek{" "}
+            <a className="myFont lg:text-3xl font-extrabold text-green-600">
+            <i className="fa fa-rocket" aria-hidden="true"></i> GlobeTrek
             </a>
           </div>
           <div className="navbar-center hidden lg:flex">
             <ul className="menu menu-horizontal px-1">{navOptions}</ul>
           </div>
-          <div className="navbar-end border rounded-2xl p-2">
+          <div className="navbar-end rounded-2xl p-2">
             {person ? (
               <div className="flex items-center">
-                <h1 className="mr-3">{person.email}</h1>
+                <h1 className="mr-3 font-bold hidden lg:flex">{person.displayName || person.name }</h1>
                 <NavLink to="/login">
                   <button
                     onClick={handleSignOut}
                     className="btn btn-outline btn-success"
                   >
-                    LogOut
+                    <i className="fa fa-arrow-circle-right" aria-hidden="true"></i> LogOut
                   </button>
                 </NavLink>
               </div>
             ) : (
               <NavLink to="/login">
-                <a className="btn btn-outline btn-warning">Login</a>
+                <a className="btn btn-outline btn-success"><i className="fa fa-arrow-circle-o-right" aria-hidden="true"></i> Login</a>
               </NavLink>
             )}
           </div>

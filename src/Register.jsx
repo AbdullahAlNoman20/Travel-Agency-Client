@@ -1,7 +1,7 @@
 import { Navigate, NavLink } from "react-router-dom";
 import { AuthContext } from "./Providers/AuthProvider";
 import { useContext } from "react";
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer, toast } from "react-toastify";
 
 const Register = () => {
   const { createPerson } = useContext(AuthContext);
@@ -10,12 +10,14 @@ const Register = () => {
   const handleRegister = async (event) => {
     event.preventDefault();
     const form = event.target;
-    const username = form.username.value;
+    const name = form.name.value;
     const email = form.email.value;
     const number = form.number.value;
+    const photo = form.photo.value;
+    const role = form.role.value;
     const password = form.password.value;
 
-    const newUser = { username, email, number, password };
+    const newUser = { name, email, number, photo, role, password };
     console.log(newUser);
 
     // Create Person in FireBase
@@ -30,24 +32,24 @@ const Register = () => {
         console.error(error);
       });
 
-      // Send Data to the Server
-     await fetch("http://localhost:5000/register_users", {
-        method: "POST",
-        headers: {
-          "content-type": "application/json",
-        },
-        body: JSON.stringify(newUser),
-      })
-        .then((req) => req.json())
-        .then((data) => {
-      form.reset()
-          console.log(data);
-        });
+    // Send Data to the Server
+    await fetch("http://localhost:5000/register_users", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(newUser),
+    })
+      .then((req) => req.json())
+      .then((data) => {
+        form.reset();
+        console.log(data);
+      });
   };
 
   return (
     <div>
-      <ToastContainer/>
+      <ToastContainer />
       <section className="flex justify-center p-5">
         <div className="border w-full max-w-md p-8 space-y-3 rounded-xl dark:bg-gray-50 dark:text-gray-800">
           <h1 className="text-2xl font-bold text-center">Register Now</h1>
@@ -59,13 +61,12 @@ const Register = () => {
           >
             <div className="space-y-1 text-sm">
               <label htmlFor="username" className="block dark:text-gray-600">
-                Username
+                Your Name
               </label>
               <input
                 type="text"
-                name="username"
-                id="username"
-                placeholder="Username"
+                name="name"
+                placeholder="Noman"
                 className="border w-full px-4 py-3 rounded-md dark:border-gray-300 dark:bg-gray-50 dark:text-gray-800 focus:dark:border-violet-600"
               />
             </div>
@@ -76,7 +77,6 @@ const Register = () => {
               <input
                 type="email"
                 name="email"
-                id="email"
                 placeholder="noman@gmail.com"
                 className="w-full px-3 py-2 border rounded-md dark:border-gray-300 dark:bg-gray-50 dark:text-gray-800 focus:dark:border-violet-600"
               />
@@ -86,12 +86,35 @@ const Register = () => {
                 Phone Number
               </label>
               <input
-                type="text"
+                type="number"
                 name="number"
                 id="phone_number"
                 placeholder="Phone Number"
                 className="border w-full px-4 py-3 rounded-md dark:border-gray-300 dark:bg-gray-50 dark:text-gray-800 focus:dark:border-violet-600"
               />
+            </div>
+            <div className="space-y-1 text-sm">
+              <select className="select select-bordered w-full">
+                <option disabled selected>
+                  Select Gender
+                </option>
+                <option>Male</option>
+                <option>Female</option>
+                <option>Others</option>
+              </select>
+            </div>
+            <div className="space-y-1 text-sm">
+              <select className="select select-bordered w-full">
+                <option disabled selected>
+                  User Role
+                </option>
+                <option>User</option>
+                <option>Gest</option>
+                <option>Moderator</option>
+                <option>Admin</option>
+                <option>VIP</option>
+                <option>Guide</option>
+              </select>
             </div>
             <div className="space-y-1 text-sm">
               <label htmlFor="password" className="block dark:text-gray-600">
@@ -118,7 +141,7 @@ const Register = () => {
               type="submit"
               className="block w-full p-3 text-center rounded-sm dark:text-gray-50 dark:bg-violet-600"
             >
-              Sign in
+              Sign up
             </button>
           </form>
 

@@ -1,56 +1,11 @@
 const Footer = () => {
   return (
-    <div className="bg-gray-50 rounded-t-3xl mt-10">
+    <div className="">
       <div className="">
         {/* left */}
-        <div className="">
-          <footer className="footer footer-center p-10">
-            <aside>
-              <p className="font-bold">
-                GlobeTrek
-                <br />
-                Virtual Exploration and Real-Time Travel Platform
-              </p>
-            </aside>
-            <nav>
-              <div className="grid grid-flow-col gap-4">
-                <a
-                  rel="noopener noreferrer"
-                  href="#"
-                  title="Pinterest"
-                  className="flex items-center justify-center w-8 h-8 rounded-full sm:w-10 sm:h-10 dark:bg-gray-100 dark:text-red-500"
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="20"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    className="fill-current"
-                  >
-                    <path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"></path>
-                  </svg>
-                </a>
-                <a
-                  rel="noopener noreferrer"
-                  href="#"
-                  title="Facebook"
-                  className="flex items-center justify-center w-8 h-8 rounded-full sm:w-10 sm:h-10 dark:bg-gray-100 dark:text-sky-500"
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="currentColor"
-                    viewBox="0 0 32 32"
-                    className="w-4 h-4"
-                  >
-                    <path d="M32 16c0-8.839-7.167-16-16-16-8.839 0-16 7.161-16 16 0 7.984 5.849 14.604 13.5 15.803v-11.177h-4.063v-4.625h4.063v-3.527c0-4.009 2.385-6.223 6.041-6.223 1.751 0 3.584 0.312 3.584 0.312v3.937h-2.021c-1.984 0-2.604 1.235-2.604 2.5v3h4.437l-0.713 4.625h-3.724v11.177c7.645-1.199 13.5-7.819 13.5-15.803z"></path>
-                  </svg>
-                </a>
-              </div>
-            </nav>
-          </footer>
-        </div>
+        
         {/* Right */}
-        <div className="">
+        <div className="dark:bg-gray-100 dark:text-gray-900">
           <footer className="footer border-t-2 items-center p-4">
             <aside className="grid-flow-col items-center">
               <p>

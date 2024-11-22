@@ -33,10 +33,10 @@ const router = createBrowserRouter([
         element: <Packages></Packages>,
       },
       {
-        path: "/package_details/:id",
+        path: "/package_details/:p_id",
         element: <PackageDetails></PackageDetails>,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/package_details/${params.id}`),
+          fetch(`http://localhost:5000/package_details/${params.p_id}`),
       },
       {
         path: "/update_package/:id",
@@ -47,10 +47,6 @@ const router = createBrowserRouter([
       {
         path: "/testimonial",
         element: <Testimonial></Testimonial>,
-      },
-      {
-        path: "/contact",
-        element: <Contact></Contact>,
       },
       {
         path: "/my_card",

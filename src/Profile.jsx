@@ -11,10 +11,31 @@ const Profile = () => {
   const handleAddSpot = (event) => {
     event.preventDefault();
     const form = event.target;
-    const placeName = form.placeName.value;
+    const name = form.name.value;
+    const a_id = form.a_id.value;
+    const g_id = form.g_id.value;
+    const category = form.category.value;
+    const season = form.season.value;
+    const duration = form.duration.value;
+    const cost = form.cost.value;
+    const location = form.location.value;
     const description = form.description.value;
+    const emergency = form.emergency.value;
+    const photo = form.photo.value;
 
-    const newPackage = { placeName, description };
+    const newPackage = {
+      name,
+      description,
+      season,
+      category,
+      g_id,
+      a_id,
+      duration,
+      cost,
+      location,
+      emergency,
+      photo,
+    };
     console.log(newPackage);
 
     fetch("http://localhost:5000/package", {
@@ -82,10 +103,13 @@ const Profile = () => {
           <div className="space-y-4 text-center divide-y dark:divide-gray-300">
             <div className="my-2 space-y-1">
               <h2 className="text-xl font-semibold sm:text-2xl">
-                {person.email}
+                {person.displayName || person.name}
               </h2>
               <p className="px-5 text-xs sm:text-base dark:text-gray-600">
                 {person.number}
+              </p>
+              <p className="px-5 text-xs sm:text-base dark:text-gray-600">
+                {person.role}
               </p>
             </div>
             <div className="flex justify-center pt-2 space-x-4 align-center">
@@ -154,11 +178,11 @@ const Profile = () => {
       <div className="flex flex-row justify-around items-center py-6 ">
         {/* Left */}
         <div className="">
-          <section>
-            {/* The button to open modal */}
+          <section className="">
+            {/* The button for open the modal */}
             <label
               htmlFor="my_modal_6"
-              className="btn btn-wide btn-success btn-outline border-0 border-b-8 rounded-full font-extrabold"
+              className="btn btn-wide btn-success btn-outline border-b-8 rounded-full font-extrabold"
             >
               Create Package
             </label>
@@ -168,13 +192,17 @@ const Profile = () => {
             <div className="modal" role="dialog">
               <div className="modal-box">
                 <h3 className="text-lg font-bold">
+                  <i
+                    className="fa fa-exclamation-circle"
+                    aria-hidden="true"
+                  ></i>{" "}
                   Attention: You are creating a Package for Tour
                 </h3>
 
                 {/* Form in here */}
-                <div className="">
+                <div className=" ">
                   {/* Form  */}
-                  <section className="p-6">
+                  <section className="p-6  ">
                     <form
                       onSubmit={handleAddSpot}
                       noValidate=""
@@ -194,6 +222,115 @@ const Profile = () => {
                               className="w-full rounded-md p-2 border"
                             />
                           </div>
+                          <div className="col-span-full sm:col-span-3">
+                            <label htmlFor="placeName" className="text-sm">
+                              Guid ID
+                            </label>
+                            <input
+                              name="g_id"
+                              type="number"
+                              placeholder="Guid ID"
+                              className="w-full rounded-md p-2 border"
+                            />
+                          </div>
+                          <div className="col-span-full sm:col-span-3">
+                            <label htmlFor="placeName" className="text-sm">
+                              Admin ID
+                            </label>
+                            <input
+                              name="a_id"
+                              type="number"
+                              placeholder="Admin ID"
+                              className="w-full rounded-md p-2 border"
+                            />
+                          </div>
+                          <div className="flex-col items-start col-span-full sm:col-span-3 flex">
+                          <label htmlFor="placeName" className="text-sm">
+                              Package Category
+                            </label>
+                            <select className="select select-bordered w-full">
+                              <option disabled selected>
+                              Package Category
+                              </option>
+                              <option>Urban</option>
+                              <option>Leisure</option>
+                              <option>Adventure</option>
+                              <option>Cultural</option>
+                              <option>Wildlife</option>
+                            </select>
+                          </div>
+                          <div className="flex-col items-start col-span-full sm:col-span-3 flex">
+                          <label htmlFor="placeName" className="text-sm">
+                              Season
+                            </label>
+                            <select className="select select-bordered w-full">
+                              <option disabled selected>
+                              Season
+                              </option>
+                              <option>Spring</option>
+                              <option>Winter</option>
+                              <option>Summer</option>
+                              <option>Autumn</option>
+                              <option>Year-round</option>
+                              
+                            </select>
+                          </div>
+                          <div className="col-span-full sm:col-span-3">
+                            <label htmlFor="placeName" className="text-sm">
+                              Duration
+                            </label>
+                            <input
+                              name="duration"
+                              type="number"
+                              placeholder="Package Duration"
+                              className="w-full rounded-md p-2 border"
+                            />
+                          </div>
+                          <div className="col-span-full sm:col-span-3">
+                            <label htmlFor="placeName" className="text-sm">
+                              Cost
+                            </label>
+                            <input
+                              name="cost"
+                              type="number"
+                              placeholder="Cost"
+                              className="w-full rounded-md p-2 border"
+                            />
+                          </div>
+                          <div className="col-span-full sm:col-span-3">
+                            <label htmlFor="placeName" className="text-sm">
+                              Location
+                            </label>
+                            <input
+                              name="location"
+                              type="text"
+                              placeholder="Location Link"
+                              className="w-full rounded-md p-2 border"
+                            />
+                          </div>
+                          <div className="col-span-full sm:col-span-3">
+                            <label htmlFor="placeName" className="text-sm">
+                              Emergency Information
+                            </label>
+                            <input
+                              name="emergency"
+                              type="text"
+                              placeholder="Emergency Information"
+                              className="w-full rounded-md p-2 border"
+                            />
+                          </div>
+                          <div className="col-span-full sm:col-span-3">
+                            <label htmlFor="placeName" className="text-sm">
+                              Package Photo
+                            </label>
+                            <input
+                              name="photo"
+                              type="text"
+                              placeholder="Photo URL"
+                              className="w-full rounded-md p-2 border"
+                            />
+                          </div>
+                          
                           <div className="col-span-full sm:col-span-3">
                             <label htmlFor="Description" className="text-sm">
                               Description

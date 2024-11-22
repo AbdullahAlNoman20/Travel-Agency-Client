@@ -3,9 +3,7 @@ import { Typewriter } from "react-simple-typewriter";
 import Search_Result from "./Search_Result";
 
 const Banner = () => {
-  const [whereToGo, setWhereToGo] = useState("");
-  const [when, setWhen] = useState("");
-  const [type, setType] = useState("");
+  const [season, setSeason] = useState("");
 
   // Search Data
   const [searchResults, setSearchResults] = useState([]);
@@ -13,9 +11,7 @@ const Banner = () => {
   const handleSearch = () => {
     // Construct the search query
     const searchParams = {
-      whereToGo,
-      when,
-      type,
+      season,
     };
     console.log(searchParams);
 
@@ -39,30 +35,34 @@ const Banner = () => {
   return (
     <div>
       <div
-        className="hero min-h-screen rounded-3xl my-4"
+        className="hero min-h-screen"
         style={{
           backgroundImage: "url(https://i.ibb.co.com/LdxJsFz/Dhaka-1.jpg)",
         }}
       >
-        <div className="hero-overlay bg-opacity-60 rounded-3xl"></div>
+        <div className="hero-overlay bg-opacity-60"></div>
         <div className="hero-content text-neutral-content text-center">
           <div className="">
-            <h1 className="mb-5 text-5xl font-bold">
+            <h1 className="mb-5 lg:text-5xl font-bold text-green-500">
               <span>
                 <Typewriter
                   words={[
-                    "Virtual Travel Experiences","Real-Time Travel Guidance","Global Adventure Tours","Personalized Travel Planning","Destination Exploration"
+                    "Virtual Travel Experiences",
+                    "Real-Time Travel Guidance",
+                    "Global Adventure Tours",
+                    "Personalized Travel Planning",
+                    "Destination Exploration",
                   ]}
                   loop={""}
                   cursor
-                  cursorStyle="✒️"
+                  cursorStyle="✈️"
                   typeSpeed={50}
                   deleteSpeed={10}
                   delaySpeed={1000}
                 />
               </span>
             </h1>
-            <p className="mb-5 w-full text-white px-24 text-justify">
+            <p className="mb-5 w-full text-white lg:px-24 text-justify">
               GlobeTrek is a cutting-edge travel platform designed to transform
               the way you explore the world. With virtual local guides,
               real-time travel updates, and community-driven content, GlobeTrek
@@ -77,55 +77,37 @@ const Banner = () => {
             </p>
 
             {/* Button Section */}
-            <div className=" bg-slate-300 bg-opacity-40 rounded-lg p-5 text-black lg:flex justify-around">
+            <div className=" bg-slate-300 bg-opacity-40 rounded-lg p-5 text-black flex flex-col lg:flex-row gap-2 lg:justify-around">
               <div className="">
                 <select
-                  value={whereToGo}
-                  onChange={(e) => setWhereToGo(e.target.value)}
+                  value={season}
+                  onChange={(e) => setSeason(e.target.value)}
                   className="select select-bordered w-full max-w-xs"
                 >
                   <option disabled value="">
-                    Where To Go
-                  </option>
-                  <option>Dhaka</option>
-                  <option>Khulna</option>
-                </select>
-              </div>
-              <div className="">
-                <select
-                  value={when}
-                  onChange={(e) => setWhen(e.target.value)}
-                  className="select select-bordered w-full max-w-xs"
-                >
-                  <option disabled value="">
-                    When
+                    Select Season
                   </option>
                   <option>Winter</option>
-                  <option>Rain</option>
+                  <option>Spring</option>
+                  <option>Summer</option>
+                  <option>Autumn</option>
+                  <option>Year-Round</option>
                 </select>
               </div>
-              <div className="">
-                <select
-                  value={type}
-                  onChange={(e) => setType(e.target.value)}
-                  className="select select-bordered w-full max-w-xs"
-                >
-                  <option disabled value="">
-                    Select Type
-                  </option>
-                  <option>Classic</option>
-                  <option>Economy</option>
-                </select>
-              </div>
-              <button onClick={handleSearch} className="btn btn-primary">
-                Search
+
+              <button
+                onClick={handleSearch}
+                className="btn btn-success text-white btn-wide"
+              >
+                Search Package{" "}
+                <i className="fa fa-search" aria-hidden="true"></i>
               </button>
+            </div>
+            <div className="">
+              <Search_Result results={searchResults}></Search_Result>
             </div>
           </div>
         </div>
-      </div>
-      <div className="">
-        <Search_Result results={searchResults}></Search_Result>
       </div>
     </div>
   );

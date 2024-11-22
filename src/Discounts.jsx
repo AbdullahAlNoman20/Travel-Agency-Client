@@ -1,7 +1,7 @@
 const Discounts = () => {
   return (
     <div>
-      <div className="carousel w-full my-5 rounded-3xl">
+      <div className="carousel w-full my-5">
         <div id="slide1" className="carousel-item relative w-full">
           <img
             src="https://i.ibb.co.com/MhnXcv4/8.jpg"

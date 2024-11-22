@@ -34,17 +34,17 @@ const Packages = () => {
   };
 
   return (
-    <div>
+    <div className="mb-10">
       <Helmet>
         <title>GlobeTrek: Packages</title>
       </Helmet>
 
-      <div className="flex justify-center items-center p-4">
+      <div className="flex justify-center items-center p-4 m-10">
         <div className="">
-          <h1 className="text-center text-xl font-semibold">
+          <h1 className="text-center text-2xl font-semibold">
             Explore the World, Virtually and Beyond. Now {packages.length}{" "}
-            Package Can Available for Travel{" "}
-          </h1 >
+            Package Can Available for Travel
+          </h1>
           <p>
             At GlobeTrek, we redefine travel by merging the excitement of
             real-world adventures with the convenience of virtual exploration.
@@ -71,11 +71,11 @@ const Packages = () => {
                 <div className="flex flex-col justify-between p-6 space-y-8">
                   <div className="space-y-2">
                     <h2 className="text-3xl font-semibold tracking-wide">
-                      {spot.placeName}
+                      {spot.name}
                     </h2>
                     <p className="dark:text-gray-800">{spot.description}</p>
                   </div>
-                  <NavLink to={`/package_details/${spot.id}`}>
+                  <NavLink to={`/package_details/${spot.p_id}`}>
                     <button
                       type="button"
                       className="btn btn-outline flex items-center justify-center w-full p-3 font-semibold tracking-wide rounded-md dark:bg-violet-900 dark:text-gray-50"
