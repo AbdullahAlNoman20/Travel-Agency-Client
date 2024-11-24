@@ -156,8 +156,8 @@ const PackageDetails = () => {
               />
             </div>
           </div>
-		  {/* Emergency Section */}
-          <section className="my-8 dark:bg-gray-100 dark:text-gray-800">
+          {/* Emergency Section */}
+          <section className=" dark:bg-gray-100 dark:text-gray-800">
             <div className="container flex flex-col items-center p-4 mx-auto space-y-6 md:p-8">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -179,7 +179,8 @@ const PackageDetails = () => {
                 />
                 <div>
                   <p className="leading-tight">Our Guide ID: {place.g_id}</p>
-                  <p className="text-sm leading-tight dark:text-gray-700">Call Him
+                  <p className="text-sm leading-tight dark:text-gray-700">
+                    Call Him
                   </p>
                   <a
                     className="flex items-center py-2 space-x-1 text-sm dark:text-violet-600"
@@ -200,6 +201,23 @@ const PackageDetails = () => {
                     </svg>
                   </a>
                 </div>
+              </div>
+            </div>
+          </section>
+          {/* Emergency Section */}
+          <section className=" dark:bg-gray-100 dark:text-gray-800">
+            <div className="container flex flex-col items-center p-4 mx-auto space-y-6 md:p-8">
+              <p className="px-6 py-2 text-2xl font-semibold text-center sm:font-bold sm:text-3xl md:text-4xl lg:max-w-2xl xl:max-w-4xl dark:text-gray-700">
+                Map Location
+              </p>
+              <div className="border-4 w-full items-center flex justify-center">
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7497570.283289285!2d85.04509529093288!3d23.427148888255196!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30adaaed80e18ba7%3A0xf2d28e0c4e1fc6b!2sBangladesh!5e0!3m2!1sen!2sbd!4v1732459711223!5m2!1sen!2sbd"
+                  className="w-full min-h-screen"
+                  allowfullscreen=""
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                ></iframe>
               </div>
             </div>
           </section>

@@ -5,7 +5,8 @@ const NewsLetter = () => {
         <div className="flex flex-col justify-between">
           <div className="space-y-2">
             <h2 className="text-xl font-bold leading-tight lg:text-3xl">
-              Stay Connected with GlobeTrek <i className="fa fa-connectdevelop" aria-hidden="true"></i>
+              Stay Connected with GlobeTrek{" "}
+              <i className="fa fa-connectdevelop" aria-hidden="true"></i>
             </h2>
             <div className="dark:text-gray-600">
               Never miss an update! Subscribe to the GlobeTrek newsletter and be
@@ -16,6 +17,17 @@ const NewsLetter = () => {
               to your inbox. Stay informed and get ready to explore the globe
               with GlobeTrek. Sign up today!
             </div>
+          </div>
+          {/* Map */}
+          <div className="border">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d58373.739359028805!2d90.2480614216797!3d23.8768956!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755b8ada2664e21%3A0x3c872fd17bc11ddb!2sDaffodil%20International%20University!5e0!3m2!1sen!2sbd!4v1732459162672!5m2!1sen!2sbd"
+              width="600"
+              height="450"
+              className="m-10 w-3/4 h-2/3 "
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+            ></iframe>
           </div>
         </div>
         <form noValidate="" className="space-y-6">

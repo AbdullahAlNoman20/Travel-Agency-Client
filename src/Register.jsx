@@ -13,11 +13,12 @@ const Register = () => {
     const name = form.name.value;
     const email = form.email.value;
     const number = form.number.value;
-    const photo = form.photo.value;
+    const gender = form.gender.value;
+    // const photo = form.photo.value;
     const role = form.role.value;
     const password = form.password.value;
 
-    const newUser = { name, email, number, photo, role, password };
+    const newUser = { name, email, number,gender, role, password };
     console.log(newUser);
 
     // Create Person in FireBase
@@ -33,7 +34,7 @@ const Register = () => {
       });
 
     // Send Data to the Server
-    await fetch("http://localhost:5000/register_users", {
+    await fetch("http://localhost:5000/user_info", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -94,26 +95,26 @@ const Register = () => {
               />
             </div>
             <div className="space-y-1 text-sm">
-              <select className="select select-bordered w-full">
-                <option disabled selected>
+              <select name="gender" required className="select select-bordered w-full">
+                <option  disabled selected>
                   Select Gender
                 </option>
-                <option>Male</option>
-                <option>Female</option>
-                <option>Others</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                <option value="Others">Others</option>
               </select>
             </div>
             <div className="space-y-1 text-sm">
-              <select className="select select-bordered w-full">
+              <select name="role" className="select select-bordered w-full">
                 <option disabled selected>
                   User Role
                 </option>
-                <option>User</option>
-                <option>Gest</option>
-                <option>Moderator</option>
-                <option>Admin</option>
-                <option>VIP</option>
-                <option>Guide</option>
+                <option value="User">User</option>
+                <option value="Guest">Gest</option>
+                <option value="Moderator">Moderator</option>
+                <option value="Admin">Admin</option>
+                <option value="VIP">VIP</option>
+                <option value="Guide">Guide</option>
               </select>
             </div>
             <div className="space-y-1 text-sm">

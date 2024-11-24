@@ -10,13 +10,15 @@ import Login from "./Login.jsx";
 import Profile from "./Profile.jsx";
 import Register from "./Register.jsx";
 import Packages from "./Packages.jsx";
-import Contact from "./Contact.jsx";
 import Testimonial from "./Testimonial.jsx";
 import PackageDetails from "./PackageDetails.jsx";
 import PackageUpdate from "./PackageUpdate.jsx";
 import AuthProvider from "./Providers/AuthProvider.jsx";
 import PrivateRout from "./PrivateRout.jsx";
 import My_Card from "./My_Card.jsx";
+import UserProfile from "./UserProfile.jsx";
+import Userinfo from "./Userinfo.jsx";
+import CreatePackage from "./Providers/CreatePackage.jsx";
 
 const router = createBrowserRouter([
   {
@@ -55,7 +57,26 @@ const router = createBrowserRouter([
       {
         path: "/profile",
         element: <PrivateRout><Profile></Profile></PrivateRout>,
-        loader: () => fetch("http://localhost:5000/register_users"),
+        children:[
+          {
+            path: "/profile",
+            element: <UserProfile></UserProfile>
+          },
+          {
+            path: "/profile/myPackage",
+            element: <div className="">My Package</div>
+          },
+          {
+            path: "/profile/addPackage",
+            element: <CreatePackage></CreatePackage>
+          },
+          {
+            path: "/profile/allUser",
+            element: <Userinfo></Userinfo>,
+            loader: () => fetch("http://localhost:5000/user_info"),
+          },
+
+        ]
       },
       {
         path: "/login",
