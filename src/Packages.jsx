@@ -14,11 +14,11 @@ const Packages = () => {
   }, []);
 
   // Handle delete
-  const handleDelete = (id) => {
+  const handleDelete = (p_id) => {
     const proceed = confirm("Are You Sure to DELETE ???");
 
     if (proceed) {
-      fetch(`http://localhost:5000/delete_package/${id}`, {
+      fetch(`http://localhost:5000/delete_package/${p_id}`, {
         method: "DELETE",
       })
         .then((res) => res.json())
@@ -26,7 +26,7 @@ const Packages = () => {
           console.log(data);
           if (data.deletedCount > 0) {
             toast.success("Deleted Successfully");
-            const remaining = packages.filter((spot) => spot.id !== id);
+            const remaining = packages.filter((spot) => spot.p_id !== p_id);
             setPackages(remaining);
           }
         });
@@ -60,11 +60,11 @@ const Packages = () => {
       {/* Mapping the Package */}
       <div className="grid grid-cols-3 gap-12">
         {packages.map((spot) => (
-          <div key={spot.id}>
+          <div key={spot.p_id}>
             <div className="">
               <div className="p-5 rounded-md shadow-md dark:bg-gray-50 dark:text-gray-800">
                 <img
-                  src="https://i.ibb.co.com/dmYWQZx/5.jpg"
+                  src={spot.photo}
                   alt=""
                   className="object-cover object-center w-full rounded-md h-72 dark:bg-gray-500"
                 />
@@ -84,13 +84,13 @@ const Packages = () => {
                     </button>
                   </NavLink>
                   <button
-                    onClick={() => handleDelete(spot.id)}
+                    onClick={() => handleDelete(spot.p_id)}
                     type="button"
                     className="btn btn-warning flex items-center justify-center w-full p-3 font-semibold tracking-wide rounded-md dark:bg-red-600 dark:text-gray-50"
                   >
                     Delete
                   </button>
-                  <NavLink to={`/update_package/${spot.id}`}>
+                  <NavLink to={`/update_package/${spot.p_id}`}>
                     <button
                       type="button"
                       className="btn btn-outline flex items-center justify-center w-full p-3 font-semibold tracking-wide rounded-md dark:bg-green-600 dark:text-gray-50"

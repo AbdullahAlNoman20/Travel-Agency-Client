@@ -9,7 +9,7 @@ const Testimonial = () => {
       <div className="p-5 mx-auto sm:p-10 md:p-16 dark:bg-gray-100 dark:text-gray-800">
         <div className="flex flex-col max-w-3xl mx-auto overflow-hidden rounded">
           <img
-            src="https://i.ibb.co.com/MhnXcv4/8.jpg"
+            src="https://i.ibb.co.com/X2ZTwPM/DALL-E-2024-12-01-19-51-33-A-vibrant-banner-image-for-a-travel-agency-named-Globe-Trek-based-in-Bang.webp"
             alt=""
             className="w-full h-60 sm:h-96 dark:bg-gray-500"
           />

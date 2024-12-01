@@ -14,7 +14,7 @@ const My_Card = () => {
               <div className="flex w-full space-x-2 sm:space-x-4">
                 <img
                   className="flex-shrink-0 object-cover w-20 h-20 dark:border- rounded outline-none sm:w-32 sm:h-32 dark:bg-gray-500"
-                  src="https://i.ibb.co.com/wYNbSmW/11.jpg"
+                  src="https://i.ibb.co.com/FBCKtdV/DALL-E-2024-12-01-20-59-21-A-professional-banner-image-for-a-Sajek-Valley-tour-package-in-Bangladesh.webp"
                   alt="Polaroid camera"
                 />
                 <div className="flex flex-col justify-between w-full pb-4">
@@ -71,7 +71,7 @@ const My_Card = () => {
               <div className="flex w-full space-x-2 sm:space-x-4">
                 <img
                   className="flex-shrink-0 object-cover w-20 h-20 dark:border- rounded outline-none sm:w-32 sm:h-32 dark:bg-gray-500"
-                  src="https://i.ibb.co.com/wYNbSmW/11.jpg"
+                  src="https://i.ibb.co.com/rtJcSwL/DALL-E-2024-12-01-20-04-49-A-clean-and-professional-banner-image-for-a-Cox-s-Bazar-tour-package-prom.webp"
                   alt="Replica headphones"
                 />
                 <div className="flex flex-col justify-between w-full pb-4">

@@ -37,7 +37,7 @@ const Banner = () => {
       <div
         className="hero min-h-screen"
         style={{
-          backgroundImage: "url(https://i.ibb.co.com/LdxJsFz/Dhaka-1.jpg)",
+          backgroundImage: "url(https://i.ibb.co.com/X2ZTwPM/DALL-E-2024-12-01-19-51-33-A-vibrant-banner-image-for-a-travel-agency-named-Globe-Trek-based-in-Bang.webp)",
         }}
       >
         <div className="hero-overlay bg-opacity-60"></div>

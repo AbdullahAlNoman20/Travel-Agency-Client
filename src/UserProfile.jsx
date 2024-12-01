@@ -8,14 +8,14 @@ const UserProfile = () => {
             <section className="flex justify-center mt-5">
         <div className="border flex flex-col justify-center max-w-xs p-6 shadow-md rounded-xl sm:px-12 dark:bg-gray-50 dark:text-gray-800">
           <img
-            src="https://i.ibb.co.com/Tv0Mppf/nmn.jpg"
+            src="https://i.ibb.co.com/Hh8Xbt8/DALL-E-2024-12-01-19-51-40-A-modern-and-vibrant-logo-design-for-a-travel-agency-named-Globe-Trek-bas.webp"
             alt=""
             className="w-32 h-32 mx-auto rounded-full dark:bg-gray-500 aspect-square"
           />
           <div className="space-y-4 text-center divide-y dark:divide-gray-300">
             <div className="my-2 space-y-1">
               <h2 className="text-xl font-semibold sm:text-2xl">
-                {person.displayName || person.name}
+                {person.name}
               </h2>
               <p className="px-5 text-xs sm:text-base dark:text-gray-600">
                 {person.number}

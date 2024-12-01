@@ -150,7 +150,7 @@ const PackageDetails = () => {
             </div>
             <div aria-hidden="true" className="mt-10 lg:mt-0">
               <img
-                src="https://i.ibb.co.com/dmYWQZx/5.jpg"
+                src={place.photo}
                 alt=""
                 className="mx-auto rounded-lg shadow-lg dark:bg-gray-500"
               />
@@ -204,7 +204,7 @@ const PackageDetails = () => {
               </div>
             </div>
           </section>
-          {/* Emergency Section */}
+          {/* Map Section */}
           <section className=" dark:bg-gray-100 dark:text-gray-800">
             <div className="container flex flex-col items-center p-4 mx-auto space-y-6 md:p-8">
               <p className="px-6 py-2 text-2xl font-semibold text-center sm:font-bold sm:text-3xl md:text-4xl lg:max-w-2xl xl:max-w-4xl dark:text-gray-700">

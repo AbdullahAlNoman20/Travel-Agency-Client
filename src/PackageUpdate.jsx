@@ -7,16 +7,22 @@ const PackageUpdate = () => {
   const handleUpdateSpot = (event) => {
     event.preventDefault();
     const form = event.target;
-    const placeName = form.placeName.value;
+    const name = form.name.value;
     const description = form.description.value;
-    const destination = form.destination.value;
-    const type = form.type.value;
-    const Class = form.Class.value;
+    const a_id = form.a_id.value;
+    const g_id = form.g_id.value;
+    const category = form.category.value;
+    const season = form.season.value;
+    const duration = form.duration.value;
+    const cost = form.cost.value;
+    const location = form.location.value;
+    const emergency = form.emergency.value;
+    const photo = form.photo.value;
 
-    const UpdatedPackage = { placeName, description, destination, type, Class };
+    const UpdatedPackage = { name,a_id,g_id,category,season,duration,cost,location,emergency,photo,description};
     console.log(UpdatedPackage);
 
-    fetch(`http://localhost:5000/updated_package/${place.id}`, {
+    fetch(`http://localhost:5000/updated_package/${place.p_id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",
@@ -28,19 +34,20 @@ const PackageUpdate = () => {
         console.log(data);
       });
     alert("Package Update Successfully");
+    
   };
 
   return (
     <div>
       <h1 className="font-extrabold text-xl text-center p-5">
-        Package Updating Page For {place.placeName}
+        Package Updating Page For {place.name}
       </h1>
       <div className="border rounded-3xl p-5 m-5">
         <form
           onSubmit={handleUpdateSpot}
           noValidate=""
           action=""
-          className="container flex flex-row mx-auto space-y-12"
+          className="container flex flex-col mx-auto"
         >
           <fieldset className="grid grid-cols-4 gap-6 p-6 rounded-md shadow-sm dark:bg-gray-50">
             <div className="grid grid-cols-6 gap-4 col-span-full lg:col-span-3">
@@ -49,46 +56,118 @@ const PackageUpdate = () => {
                   Place Name
                 </label>
                 <input
-                  name="placeName"
+                  name="name"
                   type="text"
                   placeholder="Place Name"
-                  defaultValue={place.placeName}
+                  defaultValue={place.name}
                   className="w-full rounded-md p-2 border"
                 />
               </div>
               <div className="col-span-full sm:col-span-3">
                 <label htmlFor="placeName" className="text-sm">
-                  Destination
+                  Category
                 </label>
                 <input
-                  name="destination"
+                  name="category"
+                  type="text"
+                  placeholder="Place Name"
+                  defaultValue={place.category}
+                  className="w-full rounded-md p-2 border"
+                />
+              </div>
+              <div className="col-span-full sm:col-span-3">
+                <label htmlFor="placeName" className="text-sm">
+                  Guid ID
+                </label>
+                <input
+                  name="g_id"
+                  type="text"
+                  placeholder="Place Name"
+                  defaultValue={place.g_id}
+                  className="w-full rounded-md p-2 border"
+                />
+              </div>
+              <div className="col-span-full sm:col-span-3">
+                <label htmlFor="placeName" className="text-sm">
+                  Admin ID
+                </label>
+                <input
+                  name="a_id"
+                  type="text"
+                  placeholder="Place Name"
+                  defaultValue={place.a_id}
+                  className="w-full rounded-md p-2 border"
+                />
+              </div>
+              <div className="col-span-full sm:col-span-3">
+                <label htmlFor="placeName" className="text-sm">
+                  Season
+                </label>
+                <input
+                  name="season"
+                  type="text"
+                  placeholder="Place Name"
+                  defaultValue={place.season}
+                  className="w-full rounded-md p-2 border"
+                />
+              </div>
+              <div className="col-span-full sm:col-span-3">
+                <label htmlFor="placeName" className="text-sm">
+                  Duration
+                </label>
+                <input
+                  name="duration"
+                  type="text"
+                  placeholder="Place Name"
+                  defaultValue={place.duration}
+                  className="w-full rounded-md p-2 border"
+                />
+              </div>
+              <div className="col-span-full sm:col-span-3">
+                <label htmlFor="placeName" className="text-sm">
+                  Cost 
+                </label>
+                <input
+                  name="cost"
+                  type="text"
+                  placeholder="Place Name"
+                  defaultValue={place.cost}
+                  className="w-full rounded-md p-2 border"
+                />
+              </div>
+              <div className="col-span-full sm:col-span-3">
+                <label htmlFor="placeName" className="text-sm">
+                  Location
+                </label>
+                <input
+                  name="location"
                   type="text"
                   placeholder="Destination"
-                  defaultValue={place.destination}
+                  defaultValue={place.location}
                   className="w-full rounded-md p-2 border"
                 />
               </div>
               <div className="col-span-full sm:col-span-3">
                 <label htmlFor="placeName" className="text-sm">
-                  Type
+                  Emergency
                 </label>
                 <input
-                  name="type"
+                  name="emergency"
                   type="text"
                   placeholder="Type"
-                  defaultValue={place.type}
+                  defaultValue={place.emergency}
                   className="w-full rounded-md p-2 border"
                 />
               </div>
               <div className="col-span-full sm:col-span-3">
                 <label htmlFor="placeName" className="text-sm">
-                  Class
+                  Photo
                 </label>
                 <input
-                  name="Class"
+                  name="photo"
                   type="text"
                   placeholder="Class"
-                  defaultValue={place.Class}
+                  defaultValue={place.photo}
                   className="w-full rounded-md p-2 border"
                 />
               </div>

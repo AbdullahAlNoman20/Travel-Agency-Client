@@ -69,7 +69,7 @@ const CreatePackage = () => {
                              Place Name
                            </label>
                            <input
-                             name="placeName"
+                             name="name"
                              type="text"
                              placeholder="Place Name"
                              className="w-full rounded-md p-2 border"
@@ -101,30 +101,30 @@ const CreatePackage = () => {
                            <label htmlFor="placeName" className="text-sm">
                              Package Category
                            </label>
-                           <select className="select select-bordered w-full">
+                           <select name="category" className="select select-bordered w-full">
                              <option disabled selected>
                                Package Category
                              </option>
-                             <option>Urban</option>
-                             <option>Leisure</option>
-                             <option>Adventure</option>
-                             <option>Cultural</option>
-                             <option>Wildlife</option>
+                             <option value="Urban">Urban</option>
+                             <option value="Leisure">Leisure</option>
+                             <option value="Adventure">Adventure</option>
+                             <option value="Cultural">Cultural</option>
+                             <option value="Wildlife">Wildlife</option>
                            </select>
                          </div>
                          <div className="flex-col items-start  flex">
                            <label htmlFor="placeName" className="text-sm">
                              Season
                            </label>
-                           <select className="select select-bordered w-full">
+                           <select name="season" className="select select-bordered w-full">
                              <option disabled selected>
                                Season
                              </option>
-                             <option>Spring</option>
-                             <option>Winter</option>
-                             <option>Summer</option>
-                             <option>Autumn</option>
-                             <option>Year-round</option>
+                             <option value="Spring">Spring</option>
+                             <option value="Winter">Winter</option>
+                             <option value="Summer">Summer</option>
+                             <option value="Autumn">Autumn</option>
+                             <option value="Year-round">Year-round</option>
                            </select>
                          </div>
                          <div className="">

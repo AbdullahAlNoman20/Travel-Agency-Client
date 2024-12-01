@@ -41,10 +41,10 @@ const router = createBrowserRouter([
           fetch(`http://localhost:5000/package_details/${params.p_id}`),
       },
       {
-        path: "/update_package/:id",
+        path: "/update_package/:p_id",
         element: <PackageUpdate></PackageUpdate>,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/update_package/${params.id}`),
+          fetch(`http://localhost:5000/update_package/${params.p_id}`),
       },
       {
         path: "/testimonial",

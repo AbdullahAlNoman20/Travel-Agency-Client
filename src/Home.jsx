@@ -17,7 +17,7 @@ const Home = () => {
           <div className="hero-content flex-col lg:flex-row-reverse justify-center">
             <div className="">
               <img
-                src="https://i.ibb.co.com/wYNbSmW/11.jpg"
+                src="https://i.ibb.co.com/rtJcSwL/DALL-E-2024-12-01-20-04-49-A-clean-and-professional-banner-image-for-a-Cox-s-Bazar-tour-package-prom.webp"
                 className="max-w-sm rounded-2xl shadow-2xl"
               />
             </div>

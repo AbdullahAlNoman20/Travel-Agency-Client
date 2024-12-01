@@ -42,7 +42,7 @@ const Userinfo = () => {
         <div className="container flex flex-col p-2 mx-auto sm:p-4 dark:text-gray-800">
           <div className="text-center">
             <h2 className="mb-4 text-2xl font-semibold">
-              All user {user.length}
+              You Have {user.length} Registered User Now.
             </h2>
           </div>
 
@@ -62,6 +62,7 @@ const Userinfo = () => {
                   <th className="p-3">Name</th>
                   <th className="p-3">Phone</th>
                   <th className="p-3">Email</th>
+                  <th className="p-3">User Role</th>
                   <th className="p-3">Action</th>
                 </tr>
               </thead>
@@ -75,13 +76,16 @@ const Userinfo = () => {
                 >
                   <tr>
                     <td className="px-3 py-2">
-                      <p>{user.username}</p>
+                      <p>{user.name}</p>
                     </td>
                     <td className="px-3 py-2">
                       <p>{user.number}</p>
                     </td>
                     <td className="px-3 py-2">
                       <p>{user.email}</p>
+                    </td>
+                    <td className="px-3 py-2">
+                      <p>{user.role}</p>
                     </td>
                     <td className="px-3 py-2">
                       <button
