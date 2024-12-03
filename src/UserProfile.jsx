@@ -3,6 +3,7 @@ import { AuthContext } from "./Providers/AuthProvider";
 
 const UserProfile = () => {
     const { person } = useContext(AuthContext);
+    console.log(person)
     return (
         <div>
             <section className="flex justify-center mt-5">
@@ -18,7 +19,7 @@ const UserProfile = () => {
                 {person.name}
               </h2>
               <p className="px-5 text-xs sm:text-base dark:text-gray-600">
-                {person.number}
+                {person.email}
               </p>
               <p className="px-5 text-xs sm:text-base dark:text-gray-600">
                 {person.role}

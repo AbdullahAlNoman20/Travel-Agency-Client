@@ -1,3 +1,4 @@
+import { NavLink } from "react-router-dom";
 import Banner from "./Banner";
 import Destination from "./Destination";
 import Discounts from "./Discounts";
@@ -38,9 +39,12 @@ const Home = () => {
                 guide you through the world’s wonders with our top-rated tours,
                 tailored to your unique travel style.
               </p>
+              <NavLink to="/packages">
               <button className="btn btn-success btn-outline">
                 View Details <i className="fa fa-arrow-circle-right" aria-hidden="true"></i>
               </button>
+              </NavLink>
+              
             </div>
           </div>
         </div>
@@ -102,7 +106,9 @@ const Home = () => {
                   style, ensuring every trip is memorable and uniquely yours.
                 </p>
                 <div className="card-actions justify-end">
+                <NavLink to="/packages">
                   <button className="btn btn-outline">Explore Now<i className="fa fa-arrow-circle-right" aria-hidden="true"></i></button>
+                  </NavLink>
                 </div>
               </div>
             </div>
@@ -124,7 +130,9 @@ const Home = () => {
                   details.
                 </p>
                 <div className="card-actions justify-end">
-                  <button className="btn btn-outline">Explore Now <i className="fa fa-arrow-circle-right" aria-hidden="true"></i></button>
+                <NavLink to="/packages">
+                  <button className="btn btn-outline">Explore Now<i className="fa fa-arrow-circle-right" aria-hidden="true"></i></button>
+                  </NavLink>
                 </div>
               </div>
             </div>
@@ -147,7 +155,10 @@ const Home = () => {
                   journey ahead.
                 </p>
                 <div className="card-actions justify-end">
+                  <NavLink to="/packages">
                   <button className="btn btn-outline">Explore Now<i className="fa fa-arrow-circle-right" aria-hidden="true"></i></button>
+                  </NavLink>
+                  
                 </div>
               </div>
             </div>

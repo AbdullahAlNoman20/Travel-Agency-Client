@@ -40,6 +40,11 @@ const Profile = () => {
                  <i className="fa fa-address-book" aria-hidden="true"></i> All User
                 </NavLink>
               </li>
+              <li className="btn">
+                <NavLink to="/profile/guid">
+                 <i className="fa fa-address-book" aria-hidden="true"></i> All Guid
+                </NavLink>
+              </li>
             </ul>
           </div>
 

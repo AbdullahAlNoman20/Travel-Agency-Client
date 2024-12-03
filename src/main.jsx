@@ -19,6 +19,7 @@ import My_Card from "./My_Card.jsx";
 import UserProfile from "./UserProfile.jsx";
 import Userinfo from "./Userinfo.jsx";
 import CreatePackage from "./Providers/CreatePackage.jsx";
+import GuidInfo from "./GuidInfo.jsx";
 
 const router = createBrowserRouter([
   {
@@ -74,6 +75,11 @@ const router = createBrowserRouter([
             path: "/profile/allUser",
             element: <Userinfo></Userinfo>,
             loader: () => fetch("http://localhost:5000/user_info"),
+          },
+          {
+            path: "/profile/guid",
+            element: <GuidInfo></GuidInfo>,
+            loader: () => fetch("http://localhost:5000/tour_guide_info"),
           },
 
         ]

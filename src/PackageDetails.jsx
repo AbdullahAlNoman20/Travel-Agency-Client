@@ -21,9 +21,11 @@ const PackageDetails = () => {
                 Tour Plan{" "}
               </h3>
               <p className="mt-3 text-lg dark:text-gray-600">
-                Ne dicta praesent ocurreret has, diam theophrastus at pro. Eos
-                etiam regione ut, persius eripuit quo id. Sit te euismod
-                tacimates.
+                Discover seamless travel with our curated tour packages,
+                offering comfortable stays, guided tours, delicious meals, and
+                stress-free transportation. From iconic landmarks to cultural
+                experiences, we ensure every moment is memorable. Let us handle
+                the details while you create unforgettable memories!
               </p>
               <div className="mt-12 space-y-12">
                 <div className="flex">
@@ -50,9 +52,12 @@ const PackageDetails = () => {
                       This is the {place.category} Categories Package
                     </h4>
                     <p className="mt-2 dark:text-gray-600">
-                      Ex usu illum iudico molestie. Pro ne agam facete
-                      mediocritatem, ridens labore facete mea ei. Pro id
-                      apeirian dignissim.
+                      Prepare for your adventure by packing essentials based on
+                      your package type. For outdoor or adventure tours, include
+                      comfortable clothing, sturdy shoes, and sunscreen. If it’s
+                      a cultural or city tour, carry weather-appropriate attire
+                      and a small bag for essentials. Always keep your travel
+                      documents and a first-aid kit handy!
                     </p>
                   </div>
                 </div>
@@ -80,9 +85,10 @@ const PackageDetails = () => {
                       This is a {place.season} Seasonal Package
                     </h4>
                     <p className="mt-2 dark:text-gray-600">
-                      Amet utinam aliquando ut mea, malis admodum ocurreret nec
-                      et, elit tibique cu nec. Nec ex maluisset inciderint, ex
-                      quis.
+                      Pack essentials based on the season, such as light
+                      clothing and sunscreen for summer or warm layers and rain
+                      protection for cooler or rainy months. Always check the
+                      weather forecast before your trip!
                     </p>
                   </div>
                 </div>
@@ -110,15 +116,16 @@ const PackageDetails = () => {
                       This is {place.duration} days Package
                     </h4>
                     <p className="mt-2 dark:text-gray-600">
-                      At sed possim oporteat probatus, justo graece ne nec,
-                      minim commodo legimus ut vix. Ut eos iudico quando soleat,
-                      nam modus.
+                      Plan your essentials based on the package duration,
+                      ensuring you pack enough clothing, toiletries, and
+                      medications for the days while keeping your luggage light
+                      for convenience.
                     </p>
                   </div>
                 </div>
                 <div className="flex">
                   <div className="flex-shrink-0">
-                    <div className="flex items-center justify-center w-12 h-12 rounded-md dark:bg-violet-600 dark:text-gray-50">
+                    <div className="flex items-center justify-center w-12 h-12 rounded-md dark:bg-green-500 dark:text-gray-50">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         fill="none"
@@ -140,9 +147,10 @@ const PackageDetails = () => {
                       This is {place.cost} $ Package
                     </h4>
                     <p className="mt-2 dark:text-gray-600">
-                      At sed possim oporteat probatus, justo graece ne nec,
-                      minim commodo legimus ut vix. Ut eos iudico quando soleat,
-                      nam modus.
+                      Plan your expenses according to the package cost,
+                      considering what is covered, such as accommodations and
+                      meals, and budget extra for personal purchases or
+                      activities not included in the coverage.
                     </p>
                   </div>
                 </div>
@@ -156,8 +164,10 @@ const PackageDetails = () => {
               />
             </div>
           </div>
+
+
           {/* Emergency Section */}
-          <section className=" dark:bg-gray-100 dark:text-gray-800">
+          <section className="bg-red-100 dark:text-gray-800">
             <div className="container flex flex-col items-center p-4 mx-auto space-y-6 md:p-8">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -173,20 +183,20 @@ const PackageDetails = () => {
               </p>
               <div className="flex justify-center space-x-3">
                 <img
-                  src="https://i.ibb.co.com/Tv0Mppf/nmn.jpg"
+                  src="https://i.ibb.co.com/Hh8Xbt8/DALL-E-2024-12-01-19-51-40-A-modern-and-vibrant-logo-design-for-a-travel-agency-named-Globe-Trek-bas.webp"
                   alt=""
-                  className="w-20 h-20 bg-center bg-cover rounded-md dark:bg-gray-500 dark:bg-gray-300"
+                  className="w-20 h-20 bg-center bg-cover rounded-md dark:bg-gray-500"
                 />
                 <div>
                   <p className="leading-tight">Our Guide ID: {place.g_id}</p>
                   <p className="text-sm leading-tight dark:text-gray-700">
-                    Call Him
+                  If you face any emergencies or have questions during your trip, feel free to reach out to our local guide. They are available to assist you with directions, recommendations, and resolving any issues to ensure a smooth and enjoyable experience.
                   </p>
                   <a
                     className="flex items-center py-2 space-x-1 text-sm dark:text-violet-600"
                     href="/"
                   >
-                    <span>View Guide Details</span>
+                    <span>In Case of Emergency or Queries</span>
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       viewBox="0 0 20 20"
@@ -204,11 +214,13 @@ const PackageDetails = () => {
               </div>
             </div>
           </section>
+
+          
           {/* Map Section */}
           <section className=" dark:bg-gray-100 dark:text-gray-800">
             <div className="container flex flex-col items-center p-4 mx-auto space-y-6 md:p-8">
               <p className="px-6 py-2 text-2xl font-semibold text-center sm:font-bold sm:text-3xl md:text-4xl lg:max-w-2xl xl:max-w-4xl dark:text-gray-700">
-                Map Location
+                Map Location <i className="fas fa-location    "></i>
               </p>
               <div className="border-4 w-full items-center flex justify-center">
                 <iframe

@@ -5,7 +5,7 @@ const Destination = () => {
         <div className="container max-w-6xl p-6 mx-auto space-y-6 sm:space-y-12">
           <a
             rel="noopener noreferrer"
-            href="#"
+            href="packages"
             className="block max-w-sm gap-3 mx-auto sm:max-w-full group hover:no-underline focus:no-underline lg:grid lg:grid-cols-12 dark:bg-gray-50"
           >
             <img
@@ -35,7 +35,7 @@ const Destination = () => {
           <div className="grid justify-center grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
             <a
               rel="noopener noreferrer"
-              href="#"
+              href="packages"
               className="max-w-sm mx-auto group hover:no-underline focus:no-underline dark:bg-gray-50"
             >
               <img
@@ -64,7 +64,7 @@ const Destination = () => {
             </a>
             <a
               rel="noopener noreferrer"
-              href="#"
+              href="packages"
               className="max-w-sm mx-auto group hover:no-underline focus:no-underline dark:bg-gray-50"
             >
               <img
@@ -92,7 +92,7 @@ const Destination = () => {
             </a>
             <a
               rel="noopener noreferrer"
-              href="#"
+              href="packages"
               className="max-w-sm mx-auto group hover:no-underline focus:no-underline dark:bg-gray-50"
             >
               <img
