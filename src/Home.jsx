@@ -24,7 +24,7 @@ const Home = () => {
             </div>
 
             <div className="">
-              <h1 className="text-5xl font-bold">
+              <h1 className="text-5xl font-bold" data-aos="fade-right" data-aos-duration="2000">
                 Explore Our Most Popular Tours <i className="fa fa-plane" aria-hidden="true"></i>
               </h1>
               <p className="py-6 text-justify">
@@ -52,7 +52,7 @@ const Home = () => {
 
       {/* Destination Selection Section */}
       <div className="text-center m-10">
-        <h1 className="font-extrabold text-3xl">
+        <h1 className="font-extrabold text-3xl" data-aos="zoom-in"  >
           Choose Your Dream Destination <i className="fa fa-check-circle" aria-hidden="true"></i>
         </h1>
         <p className="text-justify">
@@ -72,7 +72,7 @@ const Home = () => {
       {/* Why Chose Us Section */}
       <section>
         <div className="text-center m-10">
-          <h1 className="text-3xl font-extrabold">Why Choose GlobeTrek <i className="fa fa-question-circle" aria-hidden="true"></i></h1>
+          <h1 className="text-3xl font-extrabold" data-aos="zoom-in" >Why Choose GlobeTrek <i className="fa fa-question-circle" aria-hidden="true"></i></h1>
           <p>
             At GlobeTrek, we go beyond ordinary travel planning. Our platform
             combines virtual exploration, real-time updates, and personalized
@@ -90,7 +90,7 @@ const Home = () => {
 
         {/* Card */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-5 p-5">
-          <div className="">
+          <div className="" data-aos="fade-right" data-aos-duration="1000">
             <div className="card bg-green-100 shadow-xl lg:h-96">
               <div className="card-body">
                 <h2 className="card-title font-bold  ">
@@ -113,7 +113,7 @@ const Home = () => {
               </div>
             </div>
           </div>
-          <div className="">
+          <div className="" data-aos="zoom-in">
             <div className="border-2 border-red-200 card bg-red-100 shadow-xl lg:h-96">
               <div className="card-body">
                 <h2 className="card-title font-bold">
@@ -138,7 +138,7 @@ const Home = () => {
             </div>
           </div>
 
-          <div className="flex justify-center">
+          <div className="flex justify-center"data-aos="fade-left" data-aos-duration="1000" >
             <div className="card bg-yellow-100 shadow-xl lg:h-96">
               <div className="card-body">
                 <h2 className="card-title font-bold">
@@ -168,7 +168,7 @@ const Home = () => {
 
       {/* Discounts Section */}
       <div className="text-center m-10">
-        <h1 className="font-extrabold text-3xl">
+        <h1 className="font-extrabold text-3xl" data-aos="zoom-in" >
           Exclusive Discounts on Your Next Adventure <i className="fa fa-percent" aria-hidden="true"></i>
         </h1>
         <p className="text-justify">

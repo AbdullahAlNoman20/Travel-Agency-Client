@@ -1,4 +1,5 @@
 import { Helmet } from "react-helmet";
+import { NavLink } from "react-router-dom";
 
 const My_Card = () => {
   return (
@@ -21,14 +22,14 @@ const My_Card = () => {
                   <div className="flex justify-between w-full pb-2 space-x-2">
                     <div className="space-y-1">
                       <h3 className="text-lg font-semibold leading-snug sm:pr-8">
-                        Spot Name
+                      Sajek Valley – Heaven Above the Clouds
                       </h3>
-                      <p className="text-sm dark:text-gray-600">Classic</p>
+                      <p className="text-sm dark:text-gray-600">Urban Categories</p>
                     </div>
                     <div className="text-right">
-                      <p className="text-lg font-semibold">59.99€</p>
+                      <p className="text-lg font-semibold">500 $</p>
                       <p className="text-sm line-through dark:text-gray-400">
-                        75.50€
+                        700$€
                       </p>
                     </div>
                   </div>
@@ -78,14 +79,14 @@ const My_Card = () => {
                   <div className="flex justify-between w-full pb-2 space-x-2">
                     <div className="space-y-1">
                       <h3 className="text-lg font-semibold leading-snug sm:pr-8">
-                        Spot Name
+                      Explore the Serenity of Cox’s Bazar – A Perfect Beach Getaway
                       </h3>
-                      <p className="text-sm dark:text-gray-600">White</p>
+                      <p className="text-sm dark:text-gray-600">Adventure Categories</p>
                     </div>
                     <div className="text-right">
-                      <p className="text-lg font-semibold">99.95€</p>
+                      <p className="text-lg font-semibold">2000$</p>
                       <p className="text-sm line-through dark:text-gray-400">
-                        150€
+                        2500$
                       </p>
                     </div>
                   </div>
@@ -129,13 +130,14 @@ const My_Card = () => {
           <div className="space-y-1 text-right">
             <p>
               Total amount:
-              <span className="font-semibold">357 €</span>
+              <span className="font-semibold">2500 $ </span>
             </p>
             <p className="text-sm dark:text-gray-600">
               No tax and extra or hidden Charge
             </p>
           </div>
           <div className="flex justify-end space-x-4">
+            <NavLink to="/">
             <button
               type="button"
               className="px-6 py-2 border rounded-md dark:border-violet-600"
@@ -143,6 +145,8 @@ const My_Card = () => {
               Back
               <span className="sr-only sm:not-sr-only"> to Home</span>
             </button>
+            </NavLink>
+            
             <button
               type="button"
               className="px-6 py-2 border rounded-md dark:bg-violet-600 dark:text-gray-50 dark:border-violet-600"

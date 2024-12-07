@@ -6,7 +6,14 @@ const UserProfile = () => {
     console.log(person)
     return (
         <div>
-            <section className="flex justify-center mt-5">
+
+          <section>
+          <div role="tablist" className="tabs tabs-lifted">
+  <input type="radio" name="my_tabs_2" role="tab" className="tab" aria-label="My Profile" />
+  
+  {/* Profile Section */}
+  <div role="tabpanel" className="tab-content bg-base-100 border-base-300 rounded-box p-6">
+  <section className="flex justify-center mt-5">
         <div className="border flex flex-col justify-center max-w-xs p-6 shadow-md rounded-xl sm:px-12 dark:bg-gray-50 dark:text-gray-800">
           <img
             src="https://i.ibb.co.com/Hh8Xbt8/DALL-E-2024-12-01-19-51-40-A-modern-and-vibrant-logo-design-for-a-travel-agency-named-Globe-Trek-bas.webp"
@@ -86,6 +93,28 @@ const UserProfile = () => {
           </div>
         </div>
       </section>
+  </div>
+
+  <input
+    type="radio"
+    name="my_tabs_2"
+    role="tab"
+    className="tab"
+    aria-label="Promote Request"
+    defaultChecked />
+  <div role="tabpanel" className="tab-content bg-base-100 border-base-300 rounded-box p-6">
+    Request Promote Myself
+  </div>
+
+  <input type="radio" name="my_tabs_2" role="tab" className="tab" aria-label="AI For You" />
+  <div role="tabpanel" className="tab-content bg-base-100 border-base-300 rounded-box p-6">
+  Prompt
+  </div>
+</div>
+          </section>
+
+
+            
         </div>
     );
 };

@@ -22,7 +22,10 @@ const Search_Result = ({ results }) => {
                 <p>
                   <strong>Cost:</strong> {packageItem.cost} $
                 </p>
-                  <button className="btn btn-success btn-wide text-white mt-5">Book Now</button>
+                <NavLink to="/packages">
+                <button className="btn btn-success btn-wide text-white mt-5">Book Now</button>
+                </NavLink>
+                  
               </li>
             ))}
           </ul>

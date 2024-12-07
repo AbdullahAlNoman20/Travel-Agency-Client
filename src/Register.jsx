@@ -110,7 +110,6 @@ const Register = () => {
                   User Role
                 </option>
                 <option value="User">User</option>
-                <option value="Guest">Gest</option>
                 <option value="Moderator">Moderator</option>
                 <option value="Admin">Admin</option>
                 <option value="VIP">VIP</option>

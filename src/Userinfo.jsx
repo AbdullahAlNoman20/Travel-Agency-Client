@@ -49,13 +49,13 @@ const Userinfo = () => {
           <div className="overflow-x-auto">
             <table className="w-full p-6 text-xs text-left whitespace-nowrap">
               <colgroup>
-                <col className="w-5" />
+                <col className="" />
                 <col />
                 <col />
                 <col />
                 <col />
                 <col />
-                <col className="w-5" />
+                <col className="" />
               </colgroup>
               <thead>
                 <tr className="dark:bg-gray-300">
@@ -94,9 +94,9 @@ const Userinfo = () => {
                       >
                         Delete
                       </button>
-                      <button className="btn btn-outline btn-success">
+                      {/* <button className="btn btn-outline btn-success">
                         Update
-                      </button>
+                      </button> */}
                     </td>
                   </tr>
                 </tbody>

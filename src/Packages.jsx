@@ -60,9 +60,9 @@ const Packages = () => {
       {/* Mapping the Package */}
       <div className="grid grid-cols-3 gap-12">
         {packages.map((spot) => (
-          <div key={spot.p_id}>
-            <div className="">
-              <div className="p-5 rounded-md shadow-md dark:bg-gray-50 dark:text-gray-800">
+          <div className="h-full" key={spot.p_id}>
+            <div className=" h-full">
+              <div className="h-full p-5 rounded-md shadow-md dark:bg-gray-50 dark:text-gray-800">
                 <img
                   src={spot.photo}
                   alt=""
